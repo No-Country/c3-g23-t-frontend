@@ -10,11 +10,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
+import { CategoriasComponent } from './pages/categorias/categorias.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CategoriasComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
