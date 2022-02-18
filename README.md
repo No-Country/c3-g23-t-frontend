@@ -1,8 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # c3-g23-t-frontend
 =======
 # C3G23TFrontend
 
+=======
+>>>>>>> 10f7f0a4 (cambios en readme)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
 
 ## Development server
