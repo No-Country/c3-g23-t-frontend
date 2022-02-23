@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class LoginService {
-  private url: string = `${environment.HOST}/oauth/token`;
-  //private url: string = 'http://localhost:8080/auth/login';
+  private url: string = `${environment.HOST}/auth/login`;
+  //private url: string = `${environment.HOST}/oauth/token`;
 
   constructor(
     private http: HttpClient,
