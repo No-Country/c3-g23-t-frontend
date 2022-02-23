@@ -1,1 +1,7 @@
-<p>categorias works!</p>
+<div class="categories-container">
+  <article class="single-category-container" *ngFor="let cat of categories">
+    <!-- <img src="" alt="{{ cat.name }}" /> -->
+    <span class="category-image"></span>
+    <h2>{{ cat.name }}</h2>
+  </article>
+</div>
