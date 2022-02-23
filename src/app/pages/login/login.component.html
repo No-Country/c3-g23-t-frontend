@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-content>
+    <form #loginForm="ngForm">
+      <h2>Iniciar Sessión</h2>
+      <mat-card *ngIf="error">{{error}}</mat-card>
+      <mat-card *ngIf="mensaje">{{mensaje}}</mat-card>
+      <mat-form-field>
+        <input placeholder="Email" [(ngModel)]="email" name="email" required>
+        <mat-error>
+          introdusca un Email es valido
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input  type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+        <mat-error>
+          introdusca una contraseña valido
+        </mat-error>
+      </mat-form-field>
+      <button id="login" type="button" (click)="login()">Iniciar Sesión</button>
+    </form>
+  </mat-card-content>
+</mat-card>
