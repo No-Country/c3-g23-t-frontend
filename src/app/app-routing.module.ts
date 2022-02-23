@@ -5,7 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'Login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
 
 
@@ -13,7 +13,7 @@ const routes: Routes = [
   component: LayoutComponent,
   loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)},
 
-  {path: '**', redirectTo: 'login', pathMatch: 'full'},
+  {path: '**', redirectTo: 'home', pathMatch: 'full'},
 
 
   

@@ -3,8 +3,8 @@ var caretPos, curEmailIndex, screenCenter, svgCoords, eyeMaxHorizD = 20, eyeMaxV
 
 function getCoord(e) {
 	var carPos = email.selectionEnd,
-		div = document.createElement('div'),
-		span = document.createElement('span'),
+		div = document.createElement('div').hide(),
+		span = document.createElement('span').hide(),
 		copyStyle = getComputedStyle(email),
 		emailCoords = {}, caretCoords = {}, centerCoords = {}
 		;

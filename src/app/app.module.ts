@@ -33,6 +33,7 @@ export function tokenGetter(){
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,  
+    ReactiveFormsModule,
 
     MatButtonModule,    
     MatMenuModule,
