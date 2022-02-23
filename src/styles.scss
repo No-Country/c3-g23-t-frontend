@@ -1,6 +1,11 @@
-html, body{ height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 // ---> MEDIA QUERIES <---
 @import "include-media.scss";
@@ -15,93 +20,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 // ---> FONTS <---
 
 // ---> GLOBALS <---
-/* Fonts */
-
-/* Colors */
-$color-dark-1: #111111;
-$color-dark-2: #262626;
-$color-dark-3: #333333;
-$color-dark-4: #555555;
-$color-light-1: #eeece6;
-$color-light-2: #f2f1ed;
-$color-light-3: #f7f6f3;
-$color-light-4: #f1e9db;
-$color-gray-1: #888888;
-$color-gray-2: #cccccc;
-/* XL heading */
-$xl-max-font-size: 188;
-$xl-min-font-size: 54;
-$xl-line-height: 1.1;
-$xl-color-light: #eeece6;
-$xl-color-dark: #333333;
-/* h1 heading */
-$h1-max-font-size: 104;
-$h1-min-font-size: 35;
-$h1-line-height: 1.13;
-$h1-color-light: #eeece6;
-$h1-color-dark: #333333;
-/* h2 heading */
-$h2-max-font-size: 65;
-$h2-min-font-size: 31;
-$h2-line-height: 1.31;
-$h2-color-light: #eeece6;
-$h2-color-dark: #333333;
-/* h3 heading */
-$h3-max-font-size: 42;
-$h3-min-font-size: 24;
-$h3-line-height: 1.29;
-$h3-color-light: #eeece6;
-$h3-color-dark: #333333;
-/* h4 heading */
-$h4-max-font-size: 26;
-$h4-min-font-size: 22;
-$h4-line-height: 1.62;
-$h4-color-light: #ffffff;
-$h4-color-dark: #262626;
-/* h5 heading */
-$h5-max-font-size: 18;
-$h5-min-font-size: 1;
-$h5-line-height: 1.6;
-$h5-color-light: #ffffff;
-$h5-color-dark: #262626;
-/* h6 heading */
-$h6-max-font-size: 14;
-$h6-min-font-size: 14;
-$h6-line-height: 1.6;
-$h6-color-light: #ffffff;
-$h6-color-dark: #262626;
-/* Blockquote */
-$blockquote-max-font-size: 24;
-$blockquote-min-font-size: 16;
-$blockquote-line-height: 1.6;
-$blockquote-color-light: #ffffff;
-$blockquote-color-dark: #262626;
-/* Paragraph */
-$paragraph-max-font-size: 18;
-$paragraph-min-font-size: 16;
-$paragraph-line-height: 1.8;
-$paragraph-color-light: #cccccc;
-$paragraph-color-dark: #262626;
-/* Dropcap */
-$dropcap-max-font-size: 110;
-$dropcap-min-font-size: 60;
-$dropcap-line-height: 0.7;
-$dropcap-color-light: #ffffff;
-$dropcap-color-dark: #111111;
-/* Fluid paddings & margins (min values) */
-$distance-min-xsmall: 30;
-$distance-min-small: 30;
-$distance-min-medium: 50;
-$distance-min-large: 100;
-$distance-min-xlarge: 160;
-/* Fluid paddings & margins (max values) */
-$distance-max-xsmall: 50;
-$distance-max-small: 120;
-$distance-max-normal: 240;
-$distance-max-large: 360;
-$distance-max-xlarge: 400;
-/* Transitions */
-$main-trans: 0.3s linear all;
 
 * {
   margin: 0;
@@ -128,15 +46,32 @@ a {
 ul {
   list-style: none;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 !important;
+}
 
 /* --------------------------------------------------- */
 /* --------------------- MAIN APP -------------------- */
 /* --------------------------------------------------- */
 
 /* ======================================================================== */
-/* 1. NOMBRE_COMPONENTE_O_PAGINA */
+/* 1. SECTION */
 /* ======================================================================== */
-
+.section {
+  width: 90%;
+  margin: 0 auto;
+  .section-title {
+    font-size: 1.7rem;
+    letter-spacing: 1.5px;
+    font-weight: 300;
+    padding: 2rem 0rem;
+  }
+}
 /* ======================================================================== */
 /* 2. NOMBRE_COMPONENTE_O_PAGINA */
 /* ======================================================================== */
