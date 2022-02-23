@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {LoginService } from 'src/app/_service/login.service';
 import {environment} from 'src/environments/environment';
+import '../../../assets/login-animation.js';
 
 
 @Component({
