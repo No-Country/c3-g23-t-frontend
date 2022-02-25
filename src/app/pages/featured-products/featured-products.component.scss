@@ -1,0 +1,23 @@
+.featured-container {
+  .featured-center {
+    .single-featured {
+      .featured-img-container {
+        width: 5rem;
+        height: 5rem;
+        background: red;
+      }
+      .featured-info {
+        h2 {
+          color: black;
+          font-size: 0.8rem;
+          font-weight: 300;
+          letter-spacing: 1px;
+        }
+        span {
+          color: black;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { Not403Component } from './not403/not403.component';
 import { Not404Component } from './not404/not404.component';
 import { LayoutCustomComponent } from './layout-custom/layout-custom.component';
+import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 @NgModule({
   imports: [
     MaterialModule,
@@ -30,6 +31,7 @@ import { LayoutCustomComponent } from './layout-custom/layout-custom.component';
     Not403Component,
     Not404Component,
     LayoutCustomComponent,
+    FeaturedProductsComponent,
   ],
   providers: [],
 })
