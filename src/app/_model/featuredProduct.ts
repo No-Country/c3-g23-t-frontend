@@ -3,7 +3,11 @@ import { Usuarios } from './usuario';
 
 export class FeaturedProduct {
   id: number;
-  name: string;
+  image: {
+    imageName: string;
+    urlImage: string;
+  };
+  title: string;
   price: number;
   content: string;
   description: string;
