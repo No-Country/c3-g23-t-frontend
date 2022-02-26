@@ -13,6 +13,7 @@ import { Not403Component } from './not403/not403.component';
 import { Not404Component } from './not404/not404.component';
 import { LayoutCustomComponent } from './layout-custom/layout-custom.component';
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
+import { LoginCustomComponent } from './login-custom/login-custom.component';
 @NgModule({
   imports: [
     MaterialModule,
@@ -32,6 +33,7 @@ import { FeaturedProductsComponent } from './featured-products/featured-products
     Not404Component,
     LayoutCustomComponent,
     FeaturedProductsComponent,
+    LoginCustomComponent,
   ],
   providers: [],
 })

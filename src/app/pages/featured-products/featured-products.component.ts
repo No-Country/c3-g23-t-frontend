@@ -19,7 +19,7 @@ export class FeaturedProductsComponent implements OnInit {
   fetchFeaturedProducts() {
     this.productsService.getFeaturedProducts().subscribe((data) => {
       this.products = data;
-      console.log(data);
+      // console.log(data);
     });
   }
 }
