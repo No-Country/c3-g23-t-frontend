@@ -14,6 +14,7 @@ import { Not404Component } from './not404/not404.component';
 import { LayoutCustomComponent } from './layout-custom/layout-custom.component';
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 import { LoginCustomComponent } from './login-custom/login-custom.component';
+import { RegisterCustomComponent } from './register-custom/register-custom.component';
 @NgModule({
   imports: [
     MaterialModule,
@@ -34,6 +35,7 @@ import { LoginCustomComponent } from './login-custom/login-custom.component';
     LayoutCustomComponent,
     FeaturedProductsComponent,
     LoginCustomComponent,
+    RegisterCustomComponent,
   ],
   providers: [],
 })

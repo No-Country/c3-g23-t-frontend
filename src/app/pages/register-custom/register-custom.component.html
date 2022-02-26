@@ -6,7 +6,7 @@
     </div>
     <!-- Form -->
     <form #loginForm="ngForm" class="login-form">
-      <span>Entrar</span>
+      <span>Nuevo Usuario</span>
       <!-- Single Input 1 -->
       <div class="singleInput inputGroup1">
         <label for="email1">Email</label>
@@ -14,7 +14,6 @@
           type="email"
           id="email"
           name="email"
-          [(ngModel)]="email"
           class="email"
           maxlength="256"
           required
@@ -27,23 +26,22 @@
           type="password"
           id="password"
           name="password"
-          [(ngModel)]="password"
           class="password"
           required
           minlength="8"
           maxlength="16"
         />
         <!-- <div style="text-align: center">
-          <a routerLink="/recuperar">¿Olvidaste tu contraseña?</a>
-        </div> -->
+            <a routerLink="/recuperar">¿Olvidaste tu contraseña?</a>
+          </div> -->
         <div class="form-helpers-container">
-          <a routerLink="/register">Nuevo Usuario</a>
+          <a routerLink="/login">Ya tienes una cuenta?</a>
         </div>
       </div>
       <!-- Single Input 3 -->
       <div class="inputGroup inputGroup3">
-        <button type="button" (click)="login()" class="form-btn">
-          Iniciar Sesión
+        <button type="button" class="form-btn">
+          Cear Cuenta
           <i class="fa fa-sign-in" aria-hidden="true"></i>
         </button>
       </div>
