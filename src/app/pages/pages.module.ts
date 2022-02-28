@@ -15,6 +15,7 @@ import { LayoutCustomComponent } from './layout-custom/layout-custom.component';
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 import { LoginCustomComponent } from './login-custom/login-custom.component';
 import { RegisterCustomComponent } from './register-custom/register-custom.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 @NgModule({
   imports: [
     MaterialModule,
@@ -36,6 +37,7 @@ import { RegisterCustomComponent } from './register-custom/register-custom.compo
     FeaturedProductsComponent,
     LoginCustomComponent,
     RegisterCustomComponent,
+    ProductDetailsComponent,
   ],
   providers: [],
 })
