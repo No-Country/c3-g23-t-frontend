@@ -6,6 +6,7 @@ img {
 }
 .carousel-main-img {
   height: 25rem;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
 }
 .carousel-gallery {
   margin-top: 1rem;
@@ -25,7 +26,7 @@ img {
   .prod-rating-container {
     display: flex;
     align-items: center;
-    padding: 1rem 0;
+    padding: 1rem 0rem;
     span {
       color: var(--ColorBlack-85);
       font-size: 1rem;
@@ -50,9 +51,10 @@ img {
   .prod-desc-container {
     p {
       line-height: 1.55;
-      color: black;
+      color: #565656;
       letter-spacing: 0.7px;
       padding: 1.3rem 0rem;
+      font-size: 1rem;
     }
   }
   .prod-stock-container {
@@ -61,14 +63,15 @@ img {
     grid-template-columns: 8rem 1fr;
     row-gap: 1.25rem;
     padding-bottom: 1.5rem;
-    color: black;
+    color: #565656;
     letter-spacing: 0.7px;
     font-size: 0.9rem;
     h3 span {
       letter-spacing: 0.5px;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 500;
       color: crimson;
+      margin-left: 0.3rem;
     }
   }
 }
