@@ -12,7 +12,7 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'categorias', component: CategoriasComponent },
-  { path: 'product-details', component: ProductDetailsComponent },
+  { path: 'product-details/:id', component: ProductDetailsComponent },
 ];
 
 @NgModule({
