@@ -11,7 +11,6 @@ import { ProductsService } from 'src/app/_service/products.service';
 export class ProductDetailsComponent implements OnInit {
   detailedProduct: Product = new Product();
   productImageUrl: string;
-  productImageGallery: [];
   stars: number = 0;
   halfStar: number = 0;
 
@@ -31,8 +30,8 @@ export class ProductDetailsComponent implements OnInit {
     this.productService.getProductDetails(prodId).subscribe((data) => {
       this.detailedProduct = data;
       this.productImageUrl = data.imageProfile.urlImage;
-      this.productImageGallery = data.imagesPost;
       this.stars = data.rating;
+      console.log(data);
     });
   }
 

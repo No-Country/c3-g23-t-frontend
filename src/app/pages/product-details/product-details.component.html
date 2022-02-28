@@ -12,10 +12,10 @@
           alt="{{ detailedProduct.name }}"
           class="carousel-main-img"
         />
-        <div class="carousel-gallery" *ngIf="productImageGallery">
+        <div class="carousel-gallery" *ngIf="detailedProduct.imagesPost">
           <img
-            *ngFor="let img of productImageGallery"
-            src="{{ img }}"
+            *ngFor="let img of detailedProduct.imagesPost"
+            src="{{ img.urlImage }}"
             alt="{{ detailedProduct.name }}"
           />
         </div>

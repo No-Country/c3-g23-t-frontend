@@ -14,9 +14,16 @@ export class ProductsService {
   getFeaturedProducts() {
     return this.httpClient.get<FeaturedProduct[]>(this.baseFeaturedProductsUrl);
   }
+
   getProductDetails(prodId: number) {
     return this.httpClient.get<Product>(
       `${this.baseFeaturedProductsUrl}/${prodId}`
+    );
+  }
+
+  getProductsByCategoryId(catId: number) {
+    return this.httpClient.get<Product[]>(
+      `${this.baseFeaturedProductsUrl}/category?category=${catId}`
     );
   }
 }

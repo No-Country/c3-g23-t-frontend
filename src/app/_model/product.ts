@@ -17,6 +17,11 @@ export class Product {
     imageName: string;
     urlImage: string;
   };
-  imagesPost: [];
+  imagesPost: [
+    {
+      imageName: string;
+      urlImage: string;
+    }
+  ];
   quantitySold: number;
 }
