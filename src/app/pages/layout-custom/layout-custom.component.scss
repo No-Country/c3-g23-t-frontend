@@ -1,3 +1,7 @@
+.whole-content-container {
+}
+
+// Navbar
 .nav-container {
   width: 100%;
   display: grid;
@@ -96,6 +100,25 @@
         letter-spacing: 1.5px;
         font-weight: 300;
       }
+    }
+  }
+}
+
+// ROUTER OUTLET
+.outlet-container {
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+}
+
+// Footer
+.footer-container {
+  margin-top: 4rem;
+  position: absolute;
+  bottom: 0;
+  .footer-center {
+    .footer-main {
+    }
+    .footer-copy {
     }
   }
 }
