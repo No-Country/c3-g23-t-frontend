@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, retry, throwError } from 'rxjs';
 import { Login } from '../_model/login';
@@ -12,13 +13,15 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient, private router: Router) {}
 
-  login(email: string, password: string) {
+  login(formValues: FormGroup) {
     return this.httpClient
-      .post<Login>(this.url, { email: email, password: password })
+      .post<Login>(this.url, formValues)
       .pipe(retry(1), catchError(this.handleError));
   }
 
   handleError(error: HttpErrorResponse) {
+    console.log('Error Recibido al Service:');
+    console.log(error);
     return throwError('Algo');
   }
 
