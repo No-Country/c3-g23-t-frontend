@@ -66,17 +66,57 @@ export class RegisterCustomComponent implements OnInit {
         Validators.minLength(2),
         CustomValidators.notOnlyWhitespace,
       ]),
-      imageProfile: new FormControl('', [
-        Validators.required,
-        Validators.minLength(2),
-        CustomValidators.notOnlyWhitespace,
-      ]),
+      imageProfile: new FormControl('', []),
     });
   }
+  // Methods:
 
+  // *** Getters ***
+  get username() {
+    return this.myForm.get('username');
+  }
+  get email() {
+    return this.myForm.get('email');
+  }
+  get password() {
+    return this.myForm.get('password');
+  }
+  get name() {
+    return this.myForm.get('name');
+  }
+  get surname() {
+    return this.myForm.get('surname');
+  }
+  get country() {
+    return this.myForm.get('country');
+  }
+  get state() {
+    return this.myForm.get('state');
+  }
+  get city() {
+    return this.myForm.get('city');
+  }
+  get imageProfile() {
+    return this.myForm.get('imageProfile');
+  }
   onSubmit(): void {
-    this.registerService.register(this.myForm.value).subscribe((data) => {
-      this.router.navigate(['/pages/usuarios']);
+    if (this.myForm.invalid) {
+      this.myForm.markAllAsTouched();
+      return;
+    }
+    console.log(this.myForm);
+
+    this.registerService.register(this.myForm.value).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.router.navigate(['pages/usuarios']);
+      },
+      error: (err) => {
+        this.myError = err.status;
+        setTimeout(() => {
+          this.myError = 200;
+        }, 3000);
+      },
     });
   }
 }
