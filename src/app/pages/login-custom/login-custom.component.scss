@@ -60,6 +60,16 @@
     display: grid;
     place-items: center;
   }
+  // Submit Error:
+  p {
+    text-align: center;
+    width: 100%;
+    color: crimson;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    font-size: 0.9rem;
+    transition: 0.3s linear all;
+  }
   .singleInput {
     position: relative;
     margin: 2rem 1rem;

@@ -14,15 +14,7 @@ export class LoginService {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   login(formValues: FormGroup) {
-    return this.httpClient
-      .post<Login>(this.url, formValues)
-      .pipe(retry(1), catchError(this.handleError));
-  }
-
-  handleError(error: HttpErrorResponse) {
-    console.log('Error Recibido al Service:');
-    console.log(error);
-    return throwError('Algo');
+    return this.httpClient.post<Login>(this.url, formValues).pipe(retry(1));
   }
 
   // Recibire el OBJETO del FORM (type : Login)

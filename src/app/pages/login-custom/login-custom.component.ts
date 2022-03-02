@@ -16,7 +16,7 @@ import { CustomValidators } from 'src/app/_validators/custom-validators';
 })
 export class LoginCustomComponent implements OnInit {
   myForm: FormGroup;
-  myError: number;
+  myError: number = 200;
 
   constructor(
     private router: Router,
@@ -55,10 +55,17 @@ export class LoginCustomComponent implements OnInit {
       this.myForm.markAllAsTouched();
       return;
     }
-    this.loginService.login(this.myForm.value).subscribe((response) => {
-      this.router.navigate(['pages/usuarios']);
-      console.log('Component Response:');
-      console.log(response);
+    this.loginService.login(this.myForm.value).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.router.navigate(['pages/usuarios']);
+      },
+      error: (err) => {
+        this.myError = err.status;
+        setTimeout(() => {
+          this.myError = 200;
+        }, 3000);
+      },
     });
   }
 
