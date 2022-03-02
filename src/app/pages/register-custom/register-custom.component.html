@@ -5,7 +5,7 @@
   </div>
   <div class="register-form-center">
     <!-- Form -->
-    <form #loginForm="ngForm" class="login-form">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="login-form">
       <span>Nuevo Usuario</span>
       <!-- Single Input -->
       <div class="singleInput inputGroup1">
@@ -16,7 +16,7 @@
           name="username"
           class="username"
           maxlength="256"
-          [(ngModel)]="username"
+          formGroupName="username"
           required
         />
       </div>
@@ -29,7 +29,7 @@
           name="email"
           class="email"
           maxlength="256"
-          [(ngModel)]="email"
+          formGroupName="email"
           required
         />
       </div>
@@ -44,7 +44,7 @@
           required
           minlength="8"
           maxlength="16"
-          [(ngModel)]="password"
+          formGroupName="password"
         />
       </div>
       <!-- Single Input -->
@@ -56,7 +56,7 @@
           name="name"
           class="name"
           maxlength="256"
-          [(ngModel)]="name"
+          formGroupName="name"
           required
         />
       </div>
@@ -69,7 +69,7 @@
           name="surname"
           class="surname"
           maxlength="256"
-          [(ngModel)]="surname"
+          formGroupName="surname"
           required
         />
       </div>
@@ -82,7 +82,7 @@
           name="country"
           class="country"
           maxlength="256"
-          [(ngModel)]="country"
+          formGroupName="country"
           required
         />
       </div>
@@ -95,7 +95,7 @@
           name="state"
           class="state"
           maxlength="256"
-          [(ngModel)]="state"
+          formGroupName="state"
           required
         />
       </div>
@@ -108,7 +108,7 @@
           name="city"
           class="city"
           maxlength="256"
-          [(ngModel)]="city"
+          formGroupName="city"
           required
         />
       </div>
@@ -121,7 +121,7 @@
           name="imageProfile"
           class="imageProfile"
           maxlength="256"
-          [(ngModel)]="imageProfile"
+          formGroupName="imageProfile"
           required
         />
         <div class="form-helpers-container">
@@ -132,7 +132,7 @@
 
       <!-- Single Input 3 -->
       <div class="inputGroup inputGroup3">
-        <button type="button" class="form-btn" (click)="register()">
+        <button type="submit" class="form-btn">
           Cear Cuenta
           <i class="fa fa-sign-in" aria-hidden="true"></i>
         </button>
