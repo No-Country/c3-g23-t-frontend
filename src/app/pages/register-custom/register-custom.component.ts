@@ -66,7 +66,6 @@ export class RegisterCustomComponent implements OnInit {
         Validators.minLength(2),
         CustomValidators.notOnlyWhitespace,
       ]),
-      imageProfile: new FormControl('', []),
     });
   }
   // Methods:
@@ -104,7 +103,6 @@ export class RegisterCustomComponent implements OnInit {
       this.myForm.markAllAsTouched();
       return;
     }
-    console.log(this.myForm);
 
     this.registerService.register(this.myForm.value).subscribe({
       next: (response) => {
