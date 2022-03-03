@@ -18,14 +18,75 @@
 }
 
 // ---> MEDIA QUERIES <---
-@import "../../../include-media";
-// How to use:
-// @include media (">=phone" , "<=desktop")
-// 'phone': 375px,
 // 'tablet': 768px,
 // 'laptop': 992px,
 // 'desktop': 1250px,
 // 'LGdesktop': 1920px,
 
-@include media(">=phone", "<=tablet") {
+@media (min-width: 528px){
+  .banner-container{
+    height: 23rem;
+    padding-top: 2.5rem;
+  }
+  .banner-text{
+    width: 80%;
+    span {
+      font-size:1.8rem;
+    }
+  }
+}
+@media (min-width: 627px){  
+  .banner-container{
+    height: 24rem;
+    padding-top: 9%;
+  }
+  .banner-text{
+    width: 77%;   
+  }
+}
+@media (min-width: 700px){  
+  .banner-container{
+    height: 12rem;
+    padding-top: 7%;
+  }
+  .banner-text{
+    width: 85%;  
+    span {
+      font-size: 2rem;
+      letter-spacing: 2.5px;
+    } 
+  }
+}
+@media (min-width: 800px){  
+  .banner-container{
+    padding-top: 6%;
+  }
+}
+@media (min-width: 910px){  
+  .banner-container{
+    height: 15rem;
+    padding-top: 6.5%;
+  }
+  .banner-text{
+    span {
+      font-size: 2.5rem;
+    } 
+  }
+}
+@media (min-width: 1150px){  
+  .banner-container{
+    height: 18rem;
+    padding-top: 7%;
+  }
+  .banner-text{    
+    span {
+      font-size: 2.7rem;
+    } 
+  }
+}
+@media (min-width: 1350px){  
+  .banner-container{
+    height: 17rem;
+    padding-top: 5%;
+  } 
 }
