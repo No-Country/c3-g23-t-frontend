@@ -15,11 +15,7 @@ export class UsuariosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
-    let token = sessionStorage.getItem(environment.TOKEN_NAME);
-    //let tokenDecodificado = helpers.decode(token);
-    //this.usuario = tokenDecodificado.user_name;
-
+ 
   }
 
 }
