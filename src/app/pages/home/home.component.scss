@@ -1,10 +1,8 @@
-/***************************** 
-   ******** Banner ********
-******************************/
 .banner-container {
-  height: 52.5vh;
-  background: #ffd28ff5;
-  padding-top: 2rem;
+  height: 21rem;
+  background: #ffb13ba2;
+  padding-top: 2.3rem;
+  position: relative;
 }
 .banner-text {
   width: 90%;
@@ -17,4 +15,17 @@
     font-weight: 350;
     line-height: 1.3;
   }
+}
+
+// ---> MEDIA QUERIES <---
+@import "../../../include-media";
+// How to use:
+// @include media (">=phone" , "<=desktop")
+// 'phone': 375px,
+// 'tablet': 768px,
+// 'laptop': 992px,
+// 'desktop': 1250px,
+// 'LGdesktop': 1920px,
+
+@include media(">=phone", "<=tablet") {
 }

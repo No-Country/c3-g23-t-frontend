@@ -1,13 +1,16 @@
 .categories-container {
-  z-index: 200;
   padding-top: 1.5rem;
   width: 95%;
   margin: 0 auto;
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%);
   .categories-center {
     display: grid;
     place-items: center;
     grid-template-columns: repeat(3, 1fr);
-    row-gap: 0.7rem;
+    row-gap: 1.2rem;
   }
   article {
     height: 6.5rem;
@@ -49,12 +52,25 @@
     // END Placeholder
 
     h2 {
-      font-size: 0.7rem;
-      color: #565656;
+      font-size: 0.77rem;
+      color: #2e2d2d;
       font-weight: 400;
       text-transform: capitalize !important;
       line-height: normal;
       white-space: normal;
     }
   }
+}
+
+// ---> MEDIA QUERIES <---
+@import "../../../include-media";
+// How to use:
+// @include media (">=phone" , "<=desktop")
+// 'phone': 375px,
+// 'tablet': 768px,
+// 'laptop': 992px,
+// 'desktop': 1250px,
+// 'LGdesktop': 1920px,
+
+@include media(">=phone", "<=tablet") {
 }
