@@ -1,5 +1,5 @@
 import { Category } from './category';
-import { Usuarios } from './usuario';
+import { User } from './user';
 
 export class Product {
   id: number;
@@ -12,7 +12,7 @@ export class Product {
   discount: number;
   registration: string;
   categories: Category[];
-  client: Usuarios;
+  client: User;
   imageProfile: {
     imageName: string;
     urlImage: string;

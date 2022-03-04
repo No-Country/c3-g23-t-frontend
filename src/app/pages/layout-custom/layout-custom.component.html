@@ -8,7 +8,12 @@
       </div>
       <div class="nav-top-right">
         <div class="nav-user-container">
-          <span routerLink="/login">Entrar</span>
+          <span routerLink="/login" *ngIf="(isAuthenticated | async) == false"
+            >Entrar</span
+          >
+          <span *ngIf="(isAuthenticated | async) == true" (click)="logout()"
+            >Salir</span
+          >
         </div>
         <div class="nav-cart-container">
           <mat-icon>shopping_bag</mat-icon>
@@ -18,7 +23,7 @@
     <!-- BOT -->
     <div class="nav-bot">
       <div class="nav-ham-container">
-        <span class="material-icons" (click)="toggleSidebar()"> menu </span>
+        <span class="material-icons" (click)="openSidebar()"> menu </span>
       </div>
       <div class="nav-search-container">
         <button mat-menu-item>
@@ -31,7 +36,7 @@
 </nav>
 
 <!-- Sidebar -->
-<app-sidebar *ngIf="sidebarToggle"></app-sidebar>
+<app-sidebar *ngIf="(sidebarToggle | async) == true"></app-sidebar>
 
 <!-- Router Outlet -->
 <div class="outlet-container">
