@@ -14,7 +14,9 @@ export class ProductsService {
 
   // GET
   getFeaturedProducts() {
-    return this.httpClient.get<FeaturedProduct[]>(this.baseFeaturedProductsUrl);
+    return this.httpClient.get<FeaturedProduct[]>(
+      `${this.baseFeaturedProductsUrl}`
+    );
   }
 
   getProductDetails(prodId: number) {
@@ -30,9 +32,7 @@ export class ProductsService {
   }
 
   getProductsByUser(currentUser: string) {
-    return this.httpClient.get<Product[]>(
-      `${this.baseFeaturedProductsUrl}/${currentUser}`
-    );
+    return this.httpClient.get<Product[]>(`${this.baseFeaturedProductsUrl}`);
   }
 
   // POST

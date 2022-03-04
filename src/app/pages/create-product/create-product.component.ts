@@ -91,10 +91,11 @@ export class CreateProductComponent implements OnInit {
   }
   onFileSelect2(event) {
     if (event.target.files.length > 0) {
-      const file = (event.target as HTMLInputElement).files;
+      const files = (event.target as HTMLInputElement).files;
       this.myForm.patchValue({
-        postimages: file,
+        postimages: files,
       });
+
       this.myForm.get('postimages').updateValueAndValidity();
     }
   }
@@ -111,6 +112,8 @@ export class CreateProductComponent implements OnInit {
     formData.append('product', blob);
     formData.append('profileimage', this.myForm.get('profileimage').value);
     formData.append('postimages', this.myForm.get('postimages').value);
+    console.log('postimages', this.myForm.get('postimages').value);
+
     this.productsService.createNewProduct(formData).subscribe({
       next: (response) => {
         console.log(response);
@@ -118,7 +121,6 @@ export class CreateProductComponent implements OnInit {
         this.router.navigateByUrl('/pages/usuarios');
       },
       error: (err) => {
-        console.log(err);
         this.myError = err.status;
         if (this.myError === 200) {
           alert('Producto cargado con Exito!!!');
