@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ProductsService } from 'src/app/_service/products.service';
 import { CustomValidators } from 'src/app/_validators/custom-validators';
 
@@ -19,7 +20,8 @@ export class CreateProductComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -89,7 +91,7 @@ export class CreateProductComponent implements OnInit {
   }
   onFileSelect2(event) {
     if (event.target.files.length > 0) {
-      const file = (event.target as HTMLInputElement).files[0];
+      const file = (event.target as HTMLInputElement).files;
       this.myForm.patchValue({
         postimages: file,
       });
@@ -112,10 +114,16 @@ export class CreateProductComponent implements OnInit {
     this.productsService.createNewProduct(formData).subscribe({
       next: (response) => {
         console.log(response);
+        alert('Producto cargado con Exito!!!');
+        this.router.navigateByUrl('/pages/usuarios');
       },
       error: (err) => {
         console.log(err);
         this.myError = err.status;
+        if (this.myError === 200) {
+          alert('Producto cargado con Exito!!!');
+          this.router.navigateByUrl('/pages/usuarios');
+        }
         setTimeout(() => {
           this.myError = 200;
         }, 3000);
