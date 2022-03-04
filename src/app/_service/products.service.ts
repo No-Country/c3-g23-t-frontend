@@ -29,6 +29,12 @@ export class ProductsService {
     );
   }
 
+  getProductsByUser(currentUser: string) {
+    return this.httpClient.get<Product[]>(
+      `${this.baseFeaturedProductsUrl}/${currentUser}`
+    );
+  }
+
   // POST
   createNewProduct(productForm: FormData) {
     return this.httpClient.post(this.baseFeaturedProductsUrl, productForm);
