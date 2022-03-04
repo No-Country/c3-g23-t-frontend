@@ -20,6 +20,7 @@
         <h2>Explorar</h2>
         <hr />
         <div class="side-links">
+          <p routerLink="/" (click)="closeSidebar()">Inicio</p>
           <p>Productos</p>
           <p>Categorias</p>
           <p></p>
@@ -30,8 +31,10 @@
         <h2>Usuarios</h2>
         <hr />
         <div class="side-links">
-          <p>Mi Perfil</p>
-          <p routerLink="/crear-productos">Vender</p>
+          <p routerLink="/pages/usuarios" (click)="closeSidebar()">Mi Perfil</p>
+          <p routerLink="/pages/create-product" (click)="closeSidebar()">
+            Vender
+          </p>
           <p>Historial de Compras</p>
         </div>
       </div>

@@ -16,6 +16,7 @@ import { LoginCustomComponent } from './login-custom/login-custom.component';
 import { RegisterCustomComponent } from './register-custom/register-custom.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     RegisterCustomComponent,
     ProductDetailsComponent,
     SidebarComponent,
+    CreateProductComponent,
   ],
   providers: [],
 })

@@ -1,0 +1,210 @@
+<section class="section">
+  <div class="section-title">
+    <h2>Vender un Producto</h2>
+  </div>
+  <div class="new-product-container">
+    <div class="new-product-center">
+      <!-- Form -->
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="login-form">
+        <span>Detalles del Producto</span>
+
+        <!-- 
+          === PRODUCT ===
+         -->
+
+        <!-- Single Input 1 -->
+        <div class="singleInput" formGroupName="product">
+          <label for="name">Nombre</label>
+          <!-- Validation -->
+          <div
+            *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="validation-container"
+          >
+            <div
+              *ngIf="
+                name.errors['required'] ||
+                name.errors['notOnlyWhitespace'] == true
+              "
+            >
+              Campo Requerido
+            </div>
+            <div *ngIf="name.errors['minlength']">Min. 3 caracteres</div>
+          </div>
+          <!-- End Validation -->
+          <input type="text" id="name" name="name" formControlName="name" />
+        </div>
+        <!-- Single Input 2 -->
+        <div class="singleInput" formGroupName="product">
+          <label for="price">Precio</label>
+          <!-- Validation -->
+          <div
+            *ngIf="price.invalid && (price.dirty || price.touched)"
+            class="validation-container"
+          >
+            <div *ngIf="price.errors['required']">Campo Requerido</div>
+          </div>
+          <!-- End Validation -->
+          <input
+            type="number"
+            id="price"
+            name="price"
+            formControlName="price"
+            required
+          />
+        </div>
+        <!-- Single Input 1 -->
+        <div class="singleInput" formGroupName="product">
+          <label for="description">Descripcion</label>
+          <!-- Validation -->
+          <div
+            *ngIf="
+              description.invalid && (description.dirty || description.touched)
+            "
+            class="validation-container"
+          >
+            <div
+              *ngIf="
+                description.errors['required'] ||
+                description.errors['notOnlyWhitespace'] == true
+              "
+            >
+              Campo Requerido
+            </div>
+            <div *ngIf="description.errors['minlength']">Min. 3 caracteres</div>
+          </div>
+          <!-- End Validation -->
+          <input
+            type="text"
+            id="description"
+            name="description"
+            formControlName="description"
+          />
+        </div>
+        <!-- Single Input 2 -->
+        <div class="singleInput" formGroupName="product">
+          <label for="stock">Stock</label>
+          <!-- Validation -->
+          <div
+            *ngIf="stock.invalid && (stock.dirty || stock.touched)"
+            class="validation-container"
+          >
+            <div *ngIf="stock.errors['required']">Campo Requerido</div>
+          </div>
+          <!-- End Validation -->
+          <input
+            type="number"
+            id="stock"
+            name="stock"
+            formControlName="stock"
+            required
+          />
+        </div>
+        <!-- Single Input 1 -->
+        <div class="singleInput" formGroupName="product">
+          <label for="content">Contenido</label>
+          <!-- Validation -->
+          <div
+            *ngIf="content.invalid && (content.dirty || content.touched)"
+            class="validation-container"
+          >
+            <div
+              *ngIf="
+                content.errors['required'] ||
+                content.errors['notOnlyWhitespace'] == true
+              "
+            >
+              Campo Requerido
+            </div>
+          </div>
+          <!-- End Validation -->
+          <input
+            type="text"
+            id="content"
+            name="content"
+            formControlName="content"
+          />
+        </div>
+        <!-- Single Input 1 -->
+        <div class="singleInput" formGroupName="product">
+          <label for="discount">Descuento</label>
+          <!-- Validation -->
+          <div
+            *ngIf="discount.invalid && (discount.dirty || discount.touched)"
+            class="validation-container"
+          >
+            <div *ngIf="discount.errors['required']">Campo Requerido</div>
+          </div>
+          <!-- End Validation -->
+          <input
+            type="number"
+            id="discount"
+            name="discount"
+            formControlName="discount"
+          />
+        </div>
+
+        <!-- 
+          === Profile Image ===
+         -->
+
+        <!-- Single Input 1 -->
+        <div class="singleInput">
+          <label for="discount">Imagen de Portada</label>
+          <!-- Validation -->
+          <div
+            *ngIf="
+              profileimage.invalid &&
+              (profileimage.dirty || profileimage.touched)
+            "
+            class="validation-container"
+          >
+            <div *ngIf="profileimage.errors['required']">Campo Requerido</div>
+          </div>
+          <!-- End Validation -->
+          <input
+            type="file"
+            id="profileimage"
+            name="profileimage"
+            formControlName="profileimage"
+            (change)="onFileSelect($event)"
+          />
+        </div>
+
+        <!-- 
+          === Post Images ===
+         -->
+
+        <!-- Single Input 1 -->
+        <div class="singleInput">
+          <label for="postimages">Otras Imagenes</label>
+          <!-- Validation -->
+          <div
+            *ngIf="
+              postimages.invalid && (postimages.dirty || postimages.touched)
+            "
+            class="validation-container"
+          >
+            <div *ngIf="postimages.errors['required']">Campo Requerido</div>
+          </div>
+          <!-- End Validation -->
+          <input
+            type="file"
+            id="postimages"
+            name="postimages"
+            formControlName="postimages"
+            (change)="onFileSelect2($event)"
+          />
+        </div>
+
+        <!-- Single Input 3 -->
+        <p *ngIf="myError != 200">Ocurrio un Error.</p>
+        <div class="inputGroup">
+          <button type="button" type="submit" class="form-btn">
+            Crear Producto
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

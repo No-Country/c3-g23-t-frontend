@@ -5,6 +5,7 @@ import { CategoriasComponent } from './categorias/categorias.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { RegisterCustomComponent } from './register-custom/register-custom.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CreateProductComponent } from './create-product/create-product.component';
 //import { GuardService } from '../_service/guard.service';
 
 export const routes: Routes = [
@@ -13,6 +14,7 @@ export const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'categorias', component: CategoriasComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
+  { path: 'create-product', component: CreateProductComponent },
 ];
 
 @NgModule({
