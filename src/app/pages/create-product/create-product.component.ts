@@ -106,13 +106,20 @@ export class CreateProductComponent implements OnInit {
       return;
     }
     const formData = new FormData();
-    var blob = new Blob([JSON.stringify(this.myForm.get('product').value)], {
-      type: 'application/json',
-    });
-    formData.append('product', blob);
+
+    var productBlob = new Blob(
+      [JSON.stringify(this.myForm.get('product').value)],
+      {
+        type: 'application/json',
+      }
+    );
+
+    var postimagesBlob = new Blob([this.myForm.get('postimages').value]);
+
+    formData.append('product', productBlob);
     formData.append('profileimage', this.myForm.get('profileimage').value);
-    formData.append('postimages', this.myForm.get('postimages').value);
-    console.log('postimages', this.myForm.get('postimages').value);
+    formData.append('postimages', postimagesBlob);
+    // formData.append('postimages', this.myForm.get('postimages').value);
 
     this.productsService.createNewProduct(formData).subscribe({
       next: (response) => {
