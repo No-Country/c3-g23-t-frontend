@@ -49,7 +49,7 @@ export class CreateProductComponent implements OnInit {
       // Profile Image
       profileimage: new FormControl('', [Validators.required]),
       // Post Images
-      postimages: new FormControl('', [Validators.required]),
+      postimages: new FormControl([], [Validators.required]),
     });
   }
 
@@ -89,16 +89,19 @@ export class CreateProductComponent implements OnInit {
       this.myForm.get('profileimage').updateValueAndValidity();
     }
   }
+
   onFileSelect2(event) {
     if (event.target.files.length > 0) {
       const files = (event.target as HTMLInputElement).files;
+      console.log(files);
+
       this.myForm.patchValue({
         postimages: files,
       });
-
       this.myForm.get('postimages').updateValueAndValidity();
     }
   }
+
   //SUBMIT
   onSubmit() {
     if (this.myForm.invalid) {
@@ -114,12 +117,10 @@ export class CreateProductComponent implements OnInit {
       }
     );
 
-    var postimagesBlob = new Blob([this.myForm.get('postimages').value]);
-
     formData.append('product', productBlob);
     formData.append('profileimage', this.myForm.get('profileimage').value);
-    formData.append('postimages', postimagesBlob);
-    // formData.append('postimages', this.myForm.get('postimages').value);
+
+    formData.append('postimages[]', this.myForm.get('postimages').value);
 
     this.productsService.createNewProduct(formData).subscribe({
       next: (response) => {

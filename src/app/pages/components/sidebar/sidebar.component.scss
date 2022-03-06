@@ -11,6 +11,7 @@
     left: 0;
     background: white;
     z-index: 1000;
+    transition: 0.2s linear all;
     .sidebar-center {
       width: 80%;
       margin: 0 auto;
@@ -80,6 +81,7 @@
     background: black;
     opacity: 0.6;
     z-index: 1000;
+    transition: 0.2s linear all;
   }
 }
 @media (min-width: 800px) {
