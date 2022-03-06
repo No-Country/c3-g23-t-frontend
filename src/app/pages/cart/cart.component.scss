@@ -1,0 +1,192 @@
+.cart-container {
+  width: 100%;
+  .cart-center {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+// NONE
+.price {
+  display: none;
+}
+.subtotal {
+  display: none;
+}
+
+// Cart Quantity
+.cart-qty-container {
+  margin-bottom: 2rem;
+  h3 {
+    width: 90%;
+    margin: 0 auto !important;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 2.3rem;
+  }
+}
+
+// Cart Item
+.cart-item-container {
+  height: 6rem;
+  display: grid;
+  grid-template-columns: 200px auto auto;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  h5 {
+    font-weight: 300;
+    font-size: 0.95rem;
+    text-transform: capitalize;
+    margin-bottom: 0;
+  }
+  .title {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 75px 125px;
+    align-items: center;
+    text-align: left;
+    gap: 1rem;
+    img {
+      width: 100%;
+      height: 6rem;
+      object-fit: cover;
+    }
+    .name {
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+    .price-small {
+      color: crimson;
+      letter-spacing: 1px;
+      font-weight: 400;
+      font-size: 0.8rem;
+    }
+  }
+  .subtotal {
+    display: none;
+  }
+  .price {
+    display: none;
+  }
+
+  .color {
+    padding: 0.2rem 0rem;
+    color: var(--ColorBlack-85);
+    font-family: var(--FontWork);
+    font-weight: 300;
+    font-size: 0.95rem;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    span {
+      display: inline-block;
+      width: 0.45rem;
+      height: 0.45rem;
+      background: red;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+    }
+  }
+
+  .amount-btns {
+    width: auto;
+    button {
+      width: 1.5rem;
+      height: 1rem;
+      font-size: 0.7rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+  .remove-btn {
+    color: var(--ColorBlack-85);
+    background: transparent;
+    border: transparent;
+    width: auto;
+    height: 4rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: 316px 1fr 1fr 1fr 3rem;
+    height: 10rem;
+    .price-small {
+      display: none;
+    }
+    .subtotal {
+      display: block;
+      color: var(--ColorSemiCrimson);
+      font-family: var(--FontWork);
+      letter-spacing: 1px;
+      font-weight: 400;
+      font-size: 1rem;
+    }
+    .price {
+      display: block;
+      color: var(--ColorBlack-85);
+      font-family: var(--FontWork);
+      letter-spacing: 1px;
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+    .name {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+    .color {
+      font-size: 1.2rem;
+      letter-spacing: 0.7px;
+      span {
+        width: 0.75rem;
+        height: 0.75rem;
+      }
+    }
+    img {
+      height: 10rem;
+    }
+    .title {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 100px 200px;
+      align-items: center;
+      gap: 1rem;
+      text-align: left;
+    }
+    .amount-btns {
+      width: 100px;
+      button {
+        width: 1.5rem;
+        height: 1rem;
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  @media (min-width: 980px) {
+    height: 12rem;
+    .title {
+      grid-template-columns: 160px auto;
+      gap: 1.5rem;
+    }
+    img {
+      width: 100%;
+      height: 12rem;
+    }
+    .price {
+      font-size: 1.2rem;
+    }
+    .subtotal {
+      font-size: 1.2rem;
+    }
+    .remove-btn {
+      font-size: 1.3rem;
+    }
+  }
+}

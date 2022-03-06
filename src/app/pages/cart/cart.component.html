@@ -4,3 +4,30 @@
   </div>
 </section>
 
+<div class="cart-container">
+  <div class="cart-center">
+    <!-- Cart Quantity -->
+    <div class="cart-qty-container">
+      <h3>Tienes 2 items en tu carrito.</h3>
+    </div>
+    <!-- CART ITEM -->
+    <article class="cart-item-container" *ngFor="let item of cartItemsInfo">
+      <div class="title">
+        <img src="/assets/images/category_mochila.jpeg" alt="{{ item.name }}" />
+        <div>
+          <h5 class="name">{{ item.name }}</h5>
+          <h5 class="price-small">{{ item.price | currency: "EUR" }}</h5>
+        </div>
+      </div>
+      <h5 class="price">{{ item.price | currency: "EUR" }}</h5>
+      <div class="amount-btns">
+        <div class="mas">+</div>
+        <div class="qty">{{ item.qty }}</div>
+        <div class="menos">-</div>
+      </div>
+      <h5 class="subtotal">{{ item.price | currency: "EUR" }}</h5>
+      <button type="button" className="remove-btn">TACHO</button>
+    </article>
+    <!--  -->
+  </div>
+</div>
