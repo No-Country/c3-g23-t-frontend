@@ -1,5 +1,5 @@
 import { Category } from './category';
-import { Usuarios } from './usuario';
+import { User } from './user';
 
 export class FeaturedProduct {
   id: number;
@@ -15,6 +15,6 @@ export class FeaturedProduct {
   stock: number;
   registration: string;
   discount: number;
-  client: Usuarios;
+  client: User;
   categories: Category[];
 }

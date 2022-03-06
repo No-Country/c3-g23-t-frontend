@@ -1,5 +1,48 @@
 <div class="sidebar-container">
-  <div class="sidebar-center">
-    <h2>Sidebar</h2>
+  <div class="sidebar-main" >
+    <div class="sidebar-center">
+      <!-- Header -->
+      <div class="side-header">
+        <div class="side-header-left">
+          <h2 *ngIf="loggedUser">
+            Bienvenido:
+            <span>
+              {{ loggedUser }}
+            </span>
+          </h2>
+        </div>
+        <div class="side-header-right" (click)="closeSidebar()">
+          <mat-icon> close </mat-icon>
+        </div>
+      </div>
+      <!-- Products -->
+      <div class="side-section">
+        <h2>Explorar</h2>
+        <hr />
+        <div class="side-links">
+          <p routerLink="/" (click)="closeSidebar()">Inicio</p>
+          <p>Productos</p>
+          <p>Categorias</p>
+          <p></p>
+        </div>
+      </div>
+      <!-- User -->
+      <div class="side-section">
+        <h2>Usuarios</h2>
+        <hr />
+        <div class="side-links">
+          <p routerLink="/pages/usuarios" (click)="closeSidebar()">Mi Perfil</p>
+          <p routerLink="/pages/create-product" (click)="closeSidebar()">
+            Vender
+          </p>
+          <p routerLink="/pages/my-products" (click)="closeSidebar()">
+            Ver Mis Productos
+          </p>
+
+          <p>Historial de Compras</p>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="sidebar-shadow"></div>
 </div>

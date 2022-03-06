@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { FeaturedProduct } from '../_model/featuredProduct';
 import { Product } from '../_model/product';
 
@@ -11,8 +12,11 @@ export class ProductsService {
 
   constructor(private httpClient: HttpClient) {}
 
+  // GET
   getFeaturedProducts() {
-    return this.httpClient.get<FeaturedProduct[]>(this.baseFeaturedProductsUrl);
+    return this.httpClient.get<FeaturedProduct[]>(
+      `${this.baseFeaturedProductsUrl}`
+    );
   }
 
   getProductDetails(prodId: number) {
@@ -25,6 +29,15 @@ export class ProductsService {
     return this.httpClient.get<Product[]>(
       `${this.baseFeaturedProductsUrl}/category?category=${catId}`
     );
+  }
+
+  getProductsByUser(currentUser: string) {
+    return this.httpClient.get<Product[]>(`${this.baseFeaturedProductsUrl}`);
+  }
+
+  // POST
+  createNewProduct(productForm: FormData) {
+    return this.httpClient.post(this.baseFeaturedProductsUrl, productForm);
   }
 }
 

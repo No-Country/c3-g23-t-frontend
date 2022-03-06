@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { LoginService } from 'src/app/_service/login-custom.service';
+import { SidebarServiceService } from 'src/app/_service/sidebar-service.service';
+import { UserService } from 'src/app/_service/user.service';
 
 @Component({
   selector: 'app-layout-custom',
@@ -7,13 +12,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutCustomComponent implements OnInit {
   currentYear: number = new Date().getFullYear();
-  sidebarToggle: boolean = false;
+  sidebarToggle: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  isAuthenticated: BehaviorSubject<boolean>;
 
-  constructor() {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private sidebarService: SidebarServiceService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isAuthenticated = this.userService.isAuthenticated;
+    this.sidebarToggle = this.sidebarService.isOpen;
+  }
 
-  toggleSidebar() {
-    this.sidebarToggle = !this.sidebarToggle;
+  openSidebar() {
+    this.sidebarService.openSidebar();
+    this.sidebarToggle = this.sidebarService.isOpen;
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigateByUrl('/pages/usuarios');
   }
 }

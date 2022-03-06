@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/_service/login-custom.service';
+import { UserService } from 'src/app/_service/user.service';
 import { CustomValidators } from 'src/app/_validators/custom-validators';
 
 @Component({
@@ -21,7 +22,8 @@ export class LoginCustomComponent implements OnInit {
   constructor(
     private router: Router,
     private loginService: LoginService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -57,8 +59,8 @@ export class LoginCustomComponent implements OnInit {
     }
     this.loginService.login(this.myForm.value).subscribe({
       next: (response) => {
-        console.log(response);
-        this.router.navigate(['pages/usuarios']);
+        this.userService.isAuthenticated.next(true);
+        this.router.navigateByUrl('/pages/usuarios');
       },
       error: (err) => {
         this.myError = err.status;
