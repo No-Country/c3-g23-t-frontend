@@ -15,8 +15,9 @@ import { FeaturedProductsComponent } from './featured-products/featured-products
 import { LoginCustomComponent } from './login-custom/login-custom.component';
 import { RegisterCustomComponent } from './register-custom/register-custom.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarComponent } from '../components/sidebar/sidebar.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { CreateProductComponent } from './create-product/create-product.componen
     ProductDetailsComponent,
     SidebarComponent,
     CreateProductComponent,
+    CartComponent,
   ],
   providers: [],
 })

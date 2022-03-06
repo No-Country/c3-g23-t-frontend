@@ -31,12 +31,13 @@ export class ProductDetailsComponent implements OnInit {
       this.detailedProduct = data;
       this.activeImageUrl = data.imageProfile.urlImage;
       this.stars = data.rating;
-      console.log(this.detailedProduct);
-      
     });
   }
+
   setIndex(index: number, url: string) {
     this.selectedIndex = index;
     this.activeImageUrl = url;
   }
+
+  addToCart() {}
 }

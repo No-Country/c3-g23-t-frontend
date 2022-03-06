@@ -77,37 +77,59 @@ img {
       color: crimson;
       margin-left: 0.3rem;
     }
+    .prod-add {
+      width: 100%;
+      button {
+        padding: 1rem 2rem;
+        background: black;
+        outline: none;
+        border: 1px solid white;
+        color: white;
+        letter-spacing: 1px;
+        font-size: 1.55rem;
+        font-weight: 300;
+        transition: 0.2s linear all;
+        white-space: nowrap;
+        cursor: pointer;
+
+        &:hover {
+          color: black;
+          background: white;
+          border: 1px solid black;
+        }
+      }
+    }
   }
 }
-@media (min-width: 750px){
+
+@media (min-width: 750px) {
   .carousel-gallery {
     margin-top: 1.5rem;
     display: grid;
     grid-template-columns: repeat(auto, 1fr);
     column-gap: 0.7rem;
-    img {      
+    img {
       height: 8rem;
     }
   }
-  .description-container{
-    margin-top: 2.5rem;
+  .description-container {
+    margin-top: 0rem;
   }
 }
-@media (min-width: 980px){
-  .carousel-gallery { 
-    img {      
+@media (min-width: 980px) {
+  .carousel-gallery {
+    img {
       height: 6rem;
     }
   }
-  .details-container{
+  .details-container {
     max-width: 92%;
     margin: 0 auto;
-    margin-top: 0rem;
-    .details-center{
+    .details-center {
       display: grid;
-      grid-template-columns: repeat(2,1fr);      
+      grid-template-columns: repeat(2, 1fr);
       column-gap: 2rem;
-      .description-container{
+      .description-container {
         padding-top: 2%;
       }
     }
