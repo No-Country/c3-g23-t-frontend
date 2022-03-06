@@ -7,13 +7,8 @@ import { UserService } from './user.service';
 })
 export class SidebarServiceService {
   isOpen: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  loggedUser: string;
 
-  constructor(private userService: UserService) {
-    this.userService.currentEmail.subscribe((value) => {
-      this.loggedUser = value;
-    });
-  }
+  constructor(private userService: UserService) {}
 
   openSidebar() {
     this.isOpen.next(true);

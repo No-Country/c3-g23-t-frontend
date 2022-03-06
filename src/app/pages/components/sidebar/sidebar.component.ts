@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { SidebarServiceService } from 'src/app/_service/sidebar-service.service';
 import { UserService } from 'src/app/_service/user.service';
 
@@ -10,8 +10,8 @@ import { UserService } from 'src/app/_service/user.service';
 })
 export class SidebarComponent implements OnInit {
   isAdmin: boolean;
-  sidebarToggle: BehaviorSubject<boolean>;
-  loggedUser: string;
+  sidebarToggle: BehaviorSubject<boolean> = this.sidebarService.isOpen;
+  loggedUser: string = this.userService.currentEmail;
 
   constructor(
     private userService: UserService,
@@ -20,8 +20,6 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAdmin = this.userService.isAdmin;
-    this.sidebarToggle = this.sidebarService.isOpen;
-    this.loggedUser = this.userService.currentEmail.getValue();
   }
 
   closeSidebar() {

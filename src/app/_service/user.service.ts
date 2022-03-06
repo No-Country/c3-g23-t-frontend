@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Login } from '../_model/login';
 import { LoginService } from './login-custom.service';
 
@@ -10,7 +10,7 @@ import { LoginService } from './login-custom.service';
 export class UserService {
   currentUser: Login;
   isAdmin: boolean;
-  currentEmail: BehaviorSubject<string> = new BehaviorSubject(null);
+  currentEmail: string;
   isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(private router: Router, private loginService: LoginService) {
@@ -21,7 +21,7 @@ export class UserService {
       if (this.currentUser.roleName[0].authority === 'ROLE_ADMIN') {
         this.isAdmin = true;
       }
-      this.currentEmail.next(this.currentUser.email);
+      this.currentEmail = this.currentUser.email;
     }
   }
 
