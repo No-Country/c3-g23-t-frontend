@@ -1,5 +1,5 @@
 <div class="sidebar-container">
-  <div class="sidebar-main" >
+  <div class="sidebar-main">
     <div class="sidebar-center">
       <!-- Header -->
       <div class="side-header">
@@ -21,8 +21,12 @@
         <hr />
         <div class="side-links">
           <p routerLink="/" (click)="closeSidebar()">Inicio</p>
-          <p>Productos</p>
-          <p>Categorias</p>
+          <p routerLink="/pages/all-products" (click)="closeSidebar()">
+            Productos
+          </p>
+          <p routerLink="/pages/all-categories" (click)="closeSidebar()">
+            Categorias
+          </p>
           <p></p>
         </div>
       </div>
@@ -35,11 +39,13 @@
           <p routerLink="/pages/create-product" (click)="closeSidebar()">
             Vender
           </p>
-          <p routerLink="/pages/my-products" (click)="closeSidebar()">
+          <p routerLink="/pages/user-products" (click)="closeSidebar()">
             Ver Mis Productos
           </p>
 
-          <p>Historial de Compras</p>
+          <p routerLink="/pages/user-purchases" (click)="closeSidebar()">
+            Historial de Compras
+          </p>
         </div>
       </div>
     </div>

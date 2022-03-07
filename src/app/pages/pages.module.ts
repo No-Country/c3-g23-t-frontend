@@ -18,6 +18,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { SidebarComponent } from '../components/sidebar/sidebar.component';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { CartComponent } from './cart/cart.component';
+import { CategoriesPageComponent } from './categories-page/categories-page.component';
+import { ProductsFilterComponent } from './products-filter/products-filter.component';
+import { UserProductsComponent } from './user-products/user-products.component';
+import { UserPurchasesComponent } from './user-purchases/user-purchases.component';
 
 @NgModule({
   imports: [
@@ -43,6 +47,10 @@ import { CartComponent } from './cart/cart.component';
     SidebarComponent,
     CreateProductComponent,
     CartComponent,
+    CategoriesPageComponent,
+    ProductsFilterComponent,
+    UserProductsComponent,
+    UserPurchasesComponent,
   ],
   providers: [],
 })

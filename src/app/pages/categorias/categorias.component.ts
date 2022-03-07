@@ -9,19 +9,23 @@ import { CategoryService } from 'src/app/_service/category.service';
 })
 export class CategoriasComponent implements OnInit {
   categories: Category[];
+  displayedCategories: Category[];
 
   constructor(private categoryService: CategoryService) {}
 
   ngOnInit() {
     this.listCategories();
+    this.listDisplayedCategories();
   }
 
   listCategories() {
-    this.categoryService.getCategories().subscribe((data) => {
-      if (data.length > 6) {
-        this.categories = data.slice(0, 6);
-      }
-      this.categories = data;
+    this.categoryService.getCategories().subscribe((response) => {
+      this.categories = response;
+    });
+  }
+  listDisplayedCategories() {
+    this.categoryService.getCategories().subscribe((response) => {
+      this.displayedCategories = response.splice(0, 5);
     });
   }
 }

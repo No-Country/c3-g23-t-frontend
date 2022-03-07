@@ -42,6 +42,17 @@
         transition: 0.2s linear all;
       }
     }
+    .category-plus {
+      background: white;
+      color: crimson;
+    }
+    .category-plus > * {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      font-size: 2.2rem;
+    }
 
     // END Placeholder
     h2 {
@@ -128,6 +139,9 @@
       h2 {
         font-size: 0.8rem;
         font-weight: 400;
+      }
+      .category-plus > * {
+        font-size: 3rem;
       }
     }
   }

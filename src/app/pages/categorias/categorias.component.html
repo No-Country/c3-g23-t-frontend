@@ -1,11 +1,25 @@
 <div class="categories-container">
   <div class="categories-center">
-    <article class="single-category-container" *ngFor="let cat of categories">
+    <article
+      class="single-category-container"
+      *ngFor="let cat of displayedCategories"
+      routerLink="/pages/all-products"
+    >
       <div class="category-img-container">
         <img src="{{ cat.image.urlImage }}" alt="{{ cat.name }}" />
       </div>
       <!-- <span class="category-image"></span> -->
       <h2>{{ cat.name | lowercase }}</h2>
+    </article>
+    <article
+      class="single-category-container"
+      routerLink="/pages/all-categories"
+    >
+      <div class="category-img-container category-plus">
+        <mat-icon> add </mat-icon>
+      </div>
+      <!-- <span class="category-image"></span> -->
+      <h2>Ver Mas...</h2>
     </article>
   </div>
 </div>
