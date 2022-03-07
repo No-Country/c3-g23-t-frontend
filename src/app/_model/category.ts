@@ -4,4 +4,7 @@ export class Category {
   description: string;
   products: [];
   status: boolean;
+  image: {
+    urlImage: string;
+  };
 }

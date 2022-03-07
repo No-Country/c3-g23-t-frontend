@@ -1,0 +1,60 @@
+<section class="section">
+  <div class="section-title">
+    <h1>Mi Carrito</h1>
+  </div>
+</section>
+
+<div class="cart-container">
+  <div class="cart-center">
+    <!-- Cart Quantity -->
+    <div class="cart-qty-container">
+      <h3>Tienes 2 items en tu carrito.</h3>
+    </div>
+    <!-- CART ITEM -->
+    <article class="cart-item-container" *ngFor="let item of cartItemsInfo">
+      <!-- Item Desc -->
+      <div class="title">
+        <img src="/assets/images/category_mochila.jpeg" alt="{{ item.name }}" />
+        <div>
+          <h5 class="name">{{ item.name }}</h5>
+          <h5 class="price-small">{{ item.price | currency: "EUR" }}</h5>
+        </div>
+      </div>
+      <!-- Price (Queries) -->
+      <h5 class="price">{{ item.price | currency: "EUR" }}</h5>
+      <!-- Amount Buttons -->
+      <div class="amount-btns">
+        <button class="amount-btn">
+          <mat-icon>remove</mat-icon>
+        </button>
+        <h2 class="amount">{{ item.qty }}</h2>
+        <button class="amount-btn">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      <!-- Subtotal (Queries) -->
+      <h5 class="subtotal">{{ item.price | currency: "EUR" }}</h5>
+      <!-- Remove BTN -->
+      <button class="remove-btn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </article>
+    <!-- END Cart Items -->
+    <hr />
+    <!-- Action Buttons  -->
+    <div class="link-container">
+      <div to="/products" class="continue-btn">Seguir Comprando</div>
+      <button type="button" class="empty-btn">Vaciar Carrito</button>
+    </div>
+    <!-- END Action Buttons -->
+    <!-- Cart Totals -->
+    <article class="cart-totals">
+      <h5>Subtotal: <span> 2500</span></h5>
+      <p>Envio: <span> 25 </span></p>
+      <hr />
+      <h4>Order Total: <span> 2500</span></h4>
+      <div class="checkout-btn">Comprar!</div>
+    </article>
+    <!-- END Cart Totals -->
+  </div>
+</div>
