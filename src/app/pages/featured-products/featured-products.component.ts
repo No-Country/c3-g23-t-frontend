@@ -20,7 +20,7 @@ export class FeaturedProductsComponent implements OnInit {
   fetchFeaturedProducts() {
     this.productsService.getFeaturedProducts().subscribe({
       next: (response) => {
-        this.products = response.slice(0, 8);
+        this.products = response.slice(0, 6);
       },
       error: (err) => {
         this.myError = err.status;

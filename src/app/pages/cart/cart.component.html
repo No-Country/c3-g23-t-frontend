@@ -3,15 +3,21 @@
     <h1>Mi Carrito</h1>
   </div>
 </section>
+<!-- If Empty -->
+<div *ngIf="cartItems.length == 0" class="empty-cart" role="alert">
+  <p>Tu carrito esta vacio</p>
+  <button routerLink="/pages/all-products">Continuar comprando</button>
+</div>
+<!-- END IF EMPTY -->
 
-<div class="cart-container">
+<div class="cart-container" *ngIf="cartItems.length > 0">
   <div class="cart-center">
     <!-- Cart Quantity -->
     <div class="cart-qty-container">
-      <h3>Tienes 2 items en tu carrito.</h3>
+      <h3>Tienes {{ totalQty }} items en tu carrito.</h3>
     </div>
     <!-- CART ITEM -->
-    <article class="cart-item-container" *ngFor="let item of cartItemsInfo">
+    <article class="cart-item-container" *ngFor="let item of cartItems">
       <!-- Item Desc -->
       <div class="title">
         <img src="/assets/images/category_mochila.jpeg" alt="{{ item.name }}" />
@@ -25,34 +31,45 @@
       <!-- Amount Buttons -->
       <div class="amount-btns">
         <button class="amount-btn">
-          <mat-icon>remove</mat-icon>
+          <mat-icon (click)="decreaseQty(item)">remove</mat-icon>
         </button>
-        <h2 class="amount">{{ item.qty }}</h2>
+        <h2 class="amount">{{ item.quantity }}</h2>
         <button class="amount-btn">
-          <mat-icon>add</mat-icon>
+          <mat-icon (click)="incrementQty(item)">add</mat-icon>
         </button>
       </div>
       <!-- Subtotal (Queries) -->
       <h5 class="subtotal">{{ item.price | currency: "EUR" }}</h5>
       <!-- Remove BTN -->
       <button class="remove-btn">
-        <mat-icon>delete</mat-icon>
+        <mat-icon (click)="removeFromCart(item)">delete</mat-icon>
       </button>
     </article>
     <!-- END Cart Items -->
     <hr />
     <!-- Action Buttons  -->
     <div class="link-container">
-      <div to="/products" class="continue-btn">Seguir Comprando</div>
-      <button type="button" class="empty-btn">Vaciar Carrito</button>
+      <div routerLink="/pages/all-products" class="continue-btn">
+        Seguir Comprando
+      </div>
+      <button type="button" class="empty-btn" (click)="cleanCart()">
+        Vaciar Carrito
+      </button>
     </div>
     <!-- END Action Buttons -->
     <!-- Cart Totals -->
     <article class="cart-totals">
-      <h5>Subtotal: <span> 2500</span></h5>
-      <p>Envio: <span> 25 </span></p>
+      <h5>
+        Subtotal: <span> {{ totalPrice | currency: "EUR" }}</span>
+      </h5>
+      <p>
+        Envio: <span> {{ shippingCost | currency: "EUR" }} </span>
+      </p>
       <hr />
-      <h4>Order Total: <span> 2500</span></h4>
+      <h4>
+        Order Total:
+        <span> {{ totalPrice + shippingCost | currency: "EUR" }}</span>
+      </h4>
       <div class="checkout-btn">Comprar!</div>
     </article>
     <!-- END Cart Totals -->

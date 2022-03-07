@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CartItem } from 'src/app/_model/cart-item';
 import { Product } from 'src/app/_model/product';
+import { CartService } from 'src/app/_service/cart.service';
 import { ProductsService } from 'src/app/_service/products.service';
 
 @Component({
@@ -13,10 +15,13 @@ export class ProductDetailsComponent implements OnInit {
   activeImageUrl: string;
   stars: number = 0;
   selectedIndex: number = null;
+  myCartItem: CartItem;
 
   constructor(
     private productService: ProductsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cartService: CartService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -39,5 +44,9 @@ export class ProductDetailsComponent implements OnInit {
     this.activeImageUrl = url;
   }
 
-  addToCart() {}
+  addToCart() {
+    this.myCartItem = new CartItem(this.detailedProduct);
+    this.cartService.addToCart(this.myCartItem);
+    this.router.navigateByUrl('/pages/cart');
+  }
 }

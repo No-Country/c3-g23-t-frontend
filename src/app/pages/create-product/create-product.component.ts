@@ -17,6 +17,7 @@ import { CustomValidators } from 'src/app/_validators/custom-validators';
 export class CreateProductComponent implements OnInit {
   myForm: FormGroup;
   myError: number = 200;
+  multipleFiles: string[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -91,14 +92,8 @@ export class CreateProductComponent implements OnInit {
   }
 
   onFileSelect2(event) {
-    if (event.target.files.length > 0) {
-      const files = (event.target as HTMLInputElement).files;
-      console.log(files);
-
-      this.myForm.patchValue({
-        postimages: files,
-      });
-      this.myForm.get('postimages').updateValueAndValidity();
+    for (var i = 0; i < event.target.files.length; i++) {
+      this.multipleFiles.push(event.target.files[i]);
     }
   }
 
@@ -119,12 +114,12 @@ export class CreateProductComponent implements OnInit {
 
     formData.append('product', productBlob);
     formData.append('profileimage', this.myForm.get('profileimage').value);
-
-    formData.append('postimages[]', this.myForm.get('postimages').value);
+    for (var i = 0; i < this.multipleFiles.length; i++) {
+      formData.append('postimages', this.multipleFiles[i]);
+    }
 
     this.productsService.createNewProduct(formData).subscribe({
       next: (response) => {
-        console.log(response);
         alert('Producto cargado con Exito!!!');
         this.router.navigateByUrl('/pages/usuarios');
       },
