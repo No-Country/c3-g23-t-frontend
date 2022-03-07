@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartItem } from 'src/app/_model/cart-item';
 import { CartService } from 'src/app/_service/cart.service';
 
 @Component({
@@ -7,33 +8,38 @@ import { CartService } from 'src/app/_service/cart.service';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  cantItems: number = 2;
-  cartItemsInfo: Dato[];
+  cartItems: CartItem[] = [];
+  totalPrice: number = 0;
+  totalQty: number = 0;
+  shippingCost: number = 10;
 
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.cartItemsInfo = [
-      {
-        name: 'Autito',
-        price: 200,
-        qty: 2,
-      },
-      {
-        name: 'Cactus',
-        price: 50,
-        qty: 5,
-      },
-      {
-        name: 'Zapas',
-        price: 2500,
-        qty: 1,
-      },
-    ];
+    this.listCartDetails();
   }
-}
-export class Dato {
-  name: string;
-  price: number;
-  qty: number;
+
+  listCartDetails() {
+    this.cartItems = this.cartService.cartItems;
+    this.cartService.totalPrice.subscribe((data) => (this.totalPrice = data));
+    this.cartService.totalQuantity.subscribe((data) => (this.totalQty = data));
+    this.cartService.computeCartTotals();
+  }
+
+  incrementQty(myCartItem: CartItem) {
+    this.cartService.addToCart(myCartItem);
+  }
+
+  decreaseQty(myCartItem: CartItem) {
+    this.cartService.decreaseQuantity(myCartItem);
+  }
+
+  removeFromCart(myCartItem: CartItem) {
+    this.cartService.removeFromCart(myCartItem);
+  }
+  
+  cleanCart() {
+    this.cartService.deleteCart();
+  }
+
 }

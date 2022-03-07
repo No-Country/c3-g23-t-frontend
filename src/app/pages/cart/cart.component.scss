@@ -1,3 +1,34 @@
+// Empty Cart:
+.empty-cart {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: normal;
+  height: 30vh;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: crimson;
+  button {
+    margin-top: 1.5rem;
+    outline: none;
+    border: 1px solid black;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-weight: 0;
+    background: white;
+    cursor: pointer;
+    transition: 0.2s linear all;
+    &:hover {
+      background: black;
+      border: 1px solid white;
+      color: white;
+    }
+  }
+}
+
 .cart-container {
   width: 100%;
   .cart-center {
@@ -198,6 +229,10 @@ hr {
 
 // Queries
 @media (min-width: 768px) {
+  .empty-cart {  
+    font-size: 2rem;  
+    font-weight: 300;
+  }
   // Cart Item:
   .cart-item-container {
     grid-template-columns: 316px 1fr 1fr 1fr 3rem;
