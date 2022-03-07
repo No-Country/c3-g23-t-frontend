@@ -39,7 +39,7 @@
         </button>
       </div>
       <!-- Subtotal (Queries) -->
-      <h5 class="subtotal">{{ item.price | currency: "EUR" }}</h5>
+      <h5 class="subtotal">{{ item.price * item.quantity | currency: "EUR" }}</h5>
       <!-- Remove BTN -->
       <button class="remove-btn">
         <mat-icon (click)="removeFromCart(item)">delete</mat-icon>

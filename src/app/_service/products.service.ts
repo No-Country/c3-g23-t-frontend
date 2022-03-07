@@ -15,7 +15,7 @@ export class ProductsService {
   // GET
   getFeaturedProducts() {
     return this.httpClient.get<FeaturedProduct[]>(
-      `${this.baseFeaturedProductsUrl}`
+      `${this.baseFeaturedProductsUrl}/all`
     );
   }
 
