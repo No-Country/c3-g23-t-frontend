@@ -12,6 +12,7 @@ export class CategoryService {
 
   constructor(private httpClient: HttpClient) {}
 
+  // === ALL ===
   getCategories() {
     return this.httpClient.get<Category[]>(this.baseCategoriesUrl);
   }

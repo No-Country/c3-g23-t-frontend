@@ -3,3 +3,11 @@
     <h1>Productos y Filtros (Categorias y Orden)</h1>
   </div>
 </section>
+
+<div class="filtered-prods-container">
+  <div class="filtered-prods-center">
+    <article class="single-prod" *ngFor="let p of allProds">
+      <h2>{{ p.title }}</h2>
+    </article>
+  </div>
+</div>

@@ -18,7 +18,7 @@ export class FeaturedProductsComponent implements OnInit {
   }
 
   fetchFeaturedProducts() {
-    this.productsService.getFeaturedProducts().subscribe({
+    this.productsService.getAllFeaturedProducts().subscribe({
       next: (response) => {
         this.products = response.slice(0, 6);
       },

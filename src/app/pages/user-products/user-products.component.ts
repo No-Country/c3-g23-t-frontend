@@ -25,5 +25,7 @@ export class UserProductsComponent implements OnInit {
   }
 
   // Delte:
-  deleteMyProduct(prodId: number) {}
+  deleteMyProduct(prodId: number) {
+    this.productsService.deleteMyProduct(prodId);
+  }
 }
