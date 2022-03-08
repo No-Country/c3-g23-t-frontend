@@ -3,16 +3,14 @@ import { Product } from './product';
 export class CartItem {
   id: number;
   name: string;
-  imageProfile: {
-    urlImage: string;
-  };
+  urlImage: string;
   price: number;
   quantity: number;
 
-  constructor(product: Product) {
+  constructor(product: Product, img: string) {
     this.id = product.id;
     this.name = product.name;
-    // this.imageProfile.urlImage = product.imageProfile.imageName;
+    this.urlImage = img;
     this.price = product.price;
     this.quantity = 1;
   }

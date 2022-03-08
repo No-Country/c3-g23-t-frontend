@@ -15,7 +15,7 @@ export class ProductsService {
   // GET
   getFeaturedProducts() {
     return this.httpClient.get<FeaturedProduct[]>(
-      `${this.baseFeaturedProductsUrl}`
+      `${this.baseFeaturedProductsUrl}/all`
     );
   }
 
@@ -40,5 +40,3 @@ export class ProductsService {
     return this.httpClient.post(this.baseFeaturedProductsUrl, productForm);
   }
 }
-
-// Interface

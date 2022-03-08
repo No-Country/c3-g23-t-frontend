@@ -7,15 +7,12 @@ import { CartItem } from '../_model/cart-item';
   providedIn: 'root',
 })
 export class CartService {
-
-  checkoutUrl: string = "";
+  checkoutUrl: string = '';
 
   cartItems: CartItem[] = [];
   totalPrice: Subject<number> = new BehaviorSubject<number>(0);
   totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
   storage: Storage = localStorage;
-
-
 
   constructor(private router: Router) {
     let myStorageData = JSON.parse(this.storage.getItem('cartItems'));
@@ -91,12 +88,11 @@ export class CartService {
 
   deleteCart() {
     this.cartItems = [];
+    this.persistCartItems();
     this.router.navigateByUrl('/pages/all-products');
   }
 
-  proceedToCheckout(){
-
-  }
+  proceedToCheckout() {}
 
   persistCartItems() {
     this.storage.setItem('cartItems', JSON.stringify(this.cartItems));
