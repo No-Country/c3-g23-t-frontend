@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { LoginService } from 'src/app/_service/login-custom.service';
+import { ProductsService } from 'src/app/_service/products.service';
 import { SidebarServiceService } from 'src/app/_service/sidebar-service.service';
 import { UserService } from 'src/app/_service/user.service';
 
@@ -11,14 +11,19 @@ import { UserService } from 'src/app/_service/user.service';
   styleUrls: ['./layout-custom.component.scss'],
 })
 export class LayoutCustomComponent implements OnInit {
+  myError: number = 200;
   currentYear: number = new Date().getFullYear();
   sidebarToggle: BehaviorSubject<boolean> = new BehaviorSubject(false);
   isAuthenticated: BehaviorSubject<boolean>;
 
+  // Filters
+  selectedName: string = '';
+
   constructor(
     private userService: UserService,
     private router: Router,
-    private sidebarService: SidebarServiceService
+    private sidebarService: SidebarServiceService,
+    private productsService: ProductsService
   ) {}
 
   ngOnInit(): void {
@@ -35,4 +40,5 @@ export class LayoutCustomComponent implements OnInit {
     this.userService.logout();
     this.router.navigateByUrl('/');
   }
+  fireRedirect() {}
 }

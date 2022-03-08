@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FeaturedProduct } from '../_model/featuredProduct';
 import { FilteredProduct } from '../_model/filteredProduct';
@@ -33,9 +33,16 @@ export class ProductsService {
   }
 
   //  === FILTERED ===
+  filteredName: string = '';
   getProductsFiltered(name: string, price: number, category: string) {
-    return this.httpClient.get<Product[]>(
-      `${this.baseFeaturedProductsUrl}/all?name=${name}&price=${price}&category=${category}`
+    let myParams = new HttpParams()
+      .set('name', name)
+      .set('price', price)
+      .set('category', category);
+
+    return this.httpClient.get<FilteredProduct[]>(
+      `${this.baseFeaturedProductsUrl}/all`,
+      { params: myParams }
     );
   }
 

@@ -27,8 +27,13 @@
       </div>
       <div class="nav-search-container">
         <button mat-menu-item>
-          <mat-icon>search</mat-icon>
-          <span>Buscar</span>
+          <mat-icon> search</mat-icon>
+          <input
+            type="text"
+            placeholder="Buscar"
+            [(ngModel)]="selectedName"
+            (ngModelChange)="fireRedirect()"
+          />
         </button>
       </div>
     </div>
