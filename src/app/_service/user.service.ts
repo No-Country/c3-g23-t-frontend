@@ -30,4 +30,8 @@ export class UserService {
     this.isAuthenticated.next(false);
     this.loginService.logout();
   }
+
+  
+
+
 }

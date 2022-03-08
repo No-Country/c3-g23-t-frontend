@@ -12,13 +12,14 @@ export class ProductsService {
 
   constructor(private httpClient: HttpClient) {}
 
-  // GET
+  // Home:
   getFeaturedProducts() {
     return this.httpClient.get<FeaturedProduct[]>(
-      `${this.baseFeaturedProductsUrl}`
+      `${this.baseFeaturedProductsUrl}/all`
     );
   }
 
+  // Detailed:
   getProductDetails(prodId: number) {
     return this.httpClient.get<Product>(
       `${this.baseFeaturedProductsUrl}/${prodId}`
@@ -31,8 +32,11 @@ export class ProductsService {
     );
   }
 
-  getProductsByUser(currentUser: string) {
-    return this.httpClient.get<Product[]>(`${this.baseFeaturedProductsUrl}`);
+  // User Products:
+  getProductsByUser() {
+    return this.httpClient.get<FeaturedProduct[]>(
+      `${this.baseFeaturedProductsUrl}/me`
+    );
   }
 
   // POST

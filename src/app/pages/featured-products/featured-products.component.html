@@ -14,7 +14,9 @@
         <img src="{{ prod.image.urlImage }}" alt="{{ prod.title }}" />
       </div>
       <div class="featured-info">
-        <h2>{{ prod.title }}</h2>
+        <h2>
+          {{ prod.title }}
+        </h2>
         <span> {{ prod.price | currency: "EUR" }} </span>
       </div>
     </article>
