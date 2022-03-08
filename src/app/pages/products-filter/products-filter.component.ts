@@ -23,9 +23,6 @@ export class ProductsFilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProds();
-    this.route.paramMap.subscribe(() => {
-      this.listProducts();
-    });
   }
 
   // Methods:
@@ -38,24 +35,5 @@ export class ProductsFilterComponent implements OnInit {
         this.myError = err.status;
       },
     });
-  }
-  listProducts() {
-    this.searchMode = this.route.snapshot.paramMap.has('keyword');
-    if (this.searchMode) {
-      this.handleSearchProducts();
-    } else {
-      this.handleListProducts();
-    }
-  }
-  handleListProducts() {
-    const hasPrice: boolean = this.route.snapshot.paramMap.has('price');
-    if (hasPrice) {
-      this.priceNumber = +this.route.snapshot.paramMap.get('price')!;
-    }
-    this.priceNumber = null;
-  }
-  
-  handleSearchProducts() {
-    throw new Error('Method not implemented.');
   }
 }

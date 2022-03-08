@@ -106,8 +106,8 @@ export class RegisterCustomComponent implements OnInit {
 
     this.registerService.register(this.myForm.value).subscribe({
       next: (response) => {
-        console.log(response);
-        this.router.navigate(['pages/usuarios']);
+        alert('Cuenta creada con exito, por favor Inicia Sesion.');
+        this.router.navigate(['/login']);
       },
       error: (err) => {
         this.myError = err.status;

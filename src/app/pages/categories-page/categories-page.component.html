@@ -5,8 +5,15 @@
 </section>
 <div class="categories-container">
   <div class="categories-center">
-    <article class="single-category" *ngFor="let c of myCat">
-      <h2>{{ c.name }}</h2>
+    <article class="single-featured" *ngFor="let cat of myCat">
+      <div class="featured-img-container" routerLink="/pages/all-products">
+        <img src="{{ cat.image.urlImage }}" alt="{{ cat.name }}" />
+      </div>
+      <div class="featured-info">
+        <h2>
+          {{ cat.name | titlecase }}
+        </h2>
+      </div>
     </article>
   </div>
 </div>
