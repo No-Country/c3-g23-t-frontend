@@ -1,23 +1,58 @@
 <section class="section">
   <div class="section-title">
-    <h1>Pagina de Usuario / Admin</h1>
+    <h1>Mi Perfil</h1>
   </div>
 </section>
 
 <div class="user-container">
   <div class="user-center">
     <article class="userinfo-container" *ngIf="myUser">
-      <div class="user-name">
-        <p>Personal Info:</p>
-        <h2>{{ myUser.name }}</h2>
-        <h2>{{ myUser.surname }}</h2>
-        <p>Account Info:</p>
-        <h2>{{ myUser.username }}</h2>
-        <h2>{{ myUser.email }}</h2>
-        <p>Address Info:</p>
-        <h2>{{ myUser.country }}</h2>
-        <h2>{{ myUser.city }}</h2>
-        <h2>{{ myUser.state }}</h2>
+      <h1>{{myUser.email}}</h1>
+      <!-- Single Section -->
+      <div class="userinfo-sect">
+        <h2>Datos Personales</h2>
+        <div class="userinfo-data">
+          <h3>
+            <span> Nombre: </span>
+            {{ myUser.name }}
+          </h3>
+          <h3>
+            <span> Apellido: </span>
+            {{ myUser.surname }}
+          </h3>
+        </div>
+      </div>
+      <!-- Single Section -->
+      <div class="userinfo-sect">
+        <h2>Datos De la Cuenta</h2>
+        <div class="userinfo-data">
+          <h3>
+            <span> Usuario: </span>
+            {{ myUser.username }}
+          </h3>
+          <h3>
+            <span> E-mail: </span>
+            {{ myUser.email }}
+          </h3>
+        </div>
+      </div>
+      <!-- Single Section -->
+      <div class="userinfo-sect">
+        <h2>Datos de Facturacion</h2>
+        <div class="userinfo-data">
+          <h3>
+            <span> Pais: </span>
+            {{ myUser.country }}
+          </h3>
+          <h3>
+            <span> Provincia: </span>
+            {{ myUser.state }}
+          </h3>
+          <h3>
+            <span> Ciudad: </span>
+            {{ myUser.city }}
+          </h3>
+        </div>
       </div>
     </article>
   </div>

@@ -12,7 +12,7 @@
           </h2>
         </div>
         <div class="side-header-right" (click)="closeSidebar()">
-          <mat-icon> close </mat-icon>
+          <mat-icon> close</mat-icon>
         </div>
       </div>
       <!-- Products -->
@@ -34,7 +34,7 @@
       <div class="side-section">
         <h2>Usuarios</h2>
         <hr />
-        <div class="side-links">
+        <div class="side-links" *ngIf="loggedUser">
           <p routerLink="/pages/usuarios" (click)="closeSidebar()">Mi Perfil</p>
           <p routerLink="/pages/create-product" (click)="closeSidebar()">
             Vender
@@ -42,9 +42,29 @@
           <p routerLink="/pages/user-products" (click)="closeSidebar()">
             Ver Mis Productos
           </p>
-
           <p routerLink="/pages/user-purchases" (click)="closeSidebar()">
             Historial de Compras
+          </p>
+        </div>
+        <div class="side-links" *ngIf="loggedUser == null">
+          <p routerLink="/login" (click)="closeSidebar()">Mi Perfil</p>
+          <p routerLink="/login" (click)="closeSidebar()">Vender</p>
+          <p routerLink="/login" (click)="closeSidebar()">Ver Mis Productos</p>
+          <p routerLink="/login" (click)="closeSidebar()">
+            Historial de Compras
+          </p>
+        </div>
+      </div>
+      <!-- Admin -->
+      <div class="side-section" *ngIf="isAdmin != null && isAdmin == true">
+        <h2>Admin</h2>
+        <hr />
+        <div class="side-links" *ngIf="isAdmin">
+          <p routerLink="/pages/create-product" (click)="closeSidebar()">
+            Lista Usuarios
+          </p>
+          <p routerLink="/pages/user-products" (click)="closeSidebar()">
+            Todos los productos
           </p>
         </div>
       </div>

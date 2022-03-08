@@ -33,9 +33,9 @@ export class ProductsService {
   }
 
   //  === FILTERED ===
-  getProductsFiltered() {
+  getProductsFiltered(name: string, price: number, category: string) {
     return this.httpClient.get<Product[]>(
-      `${this.baseFeaturedProductsUrl}/all`
+      `${this.baseFeaturedProductsUrl}/all?name=${name}&price=${price}&category=${category}`
     );
   }
 

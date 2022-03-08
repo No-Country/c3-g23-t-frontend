@@ -1,0 +1,48 @@
+@import "/src/app/pages/featured-products/featured-products.component.scss";
+
+.categories-container {
+  width: 90%;
+  margin: 0 auto;
+  .categories-center {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+    row-gap: 1.5rem;
+  }
+}
+.featured-info {
+  h2 {
+    font-weight: 400 !important;
+  }
+}
+
+// Queries:
+@media (min-width: 650px) {
+  .categories-container {
+    .categories-center {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  section {
+    padding-top: 1.5rem !important;
+  }
+}
+
+@media (min-width: 950px) {
+  .categories-container {
+    .categories-center {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .categories-container {
+    .categories-center {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+}
