@@ -33,6 +33,6 @@ export class LayoutCustomComponent implements OnInit {
 
   logout() {
     this.userService.logout();
-    this.router.navigateByUrl('/pages/usuarios');
+    this.router.navigateByUrl('/');
   }
 }

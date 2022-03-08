@@ -13,8 +13,6 @@ export class UserService {
   private userUrl = 'http://localhost:8080/user';
 
   currentUser: Login;
-  isAdmin: boolean;
-  currentEmail: string;
   isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
@@ -23,13 +21,8 @@ export class UserService {
     private httpClient: HttpClient
   ) {
     this.loginService.currentUser.subscribe((x) => (this.currentUser = x));
-
     if (this.currentUser != null) {
       this.isAuthenticated.next(true);
-      if (this.currentUser.roleName[0].authority === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-      this.currentEmail = this.currentUser.email;
     }
   }
 
