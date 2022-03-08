@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { FeaturedProduct } from '../_model/featuredProduct';
+import { FilteredProduct } from '../_model/filteredProduct';
 import { Product } from '../_model/product';
 
 @Injectable({
@@ -12,31 +12,46 @@ export class ProductsService {
 
   constructor(private httpClient: HttpClient) {}
 
-  // GET
-  getFeaturedProducts() {
+  // === Featured ===
+  getAllFeaturedProducts() {
     return this.httpClient.get<FeaturedProduct[]>(
       `${this.baseFeaturedProductsUrl}/all`
     );
   }
 
+  getAllProducts() {
+    return this.httpClient.get<FilteredProduct[]>(
+      `${this.baseFeaturedProductsUrl}/all`
+    );
+  }
+
+  // Detailed:
   getProductDetails(prodId: number) {
     return this.httpClient.get<Product>(
       `${this.baseFeaturedProductsUrl}/${prodId}`
     );
   }
 
-  getProductsByCategoryId(catId: number) {
+  //  === FILTERED ===
+  getProductsFiltered() {
     return this.httpClient.get<Product[]>(
-      `${this.baseFeaturedProductsUrl}/category?category=${catId}`
+      `${this.baseFeaturedProductsUrl}/all`
     );
   }
 
-  getProductsByUser(currentUser: string) {
-    return this.httpClient.get<Product[]>(`${this.baseFeaturedProductsUrl}`);
-  }
-
-  // POST
+  // === USER ===
   createNewProduct(productForm: FormData) {
     return this.httpClient.post(this.baseFeaturedProductsUrl, productForm);
+  }
+
+  getProductsByUser() {
+    return this.httpClient.get<FeaturedProduct[]>(
+      `${this.baseFeaturedProductsUrl}/me`
+    );
+  }
+
+  deleteMyProduct(prodId: number) {
+    console.log('Borrara el producto con ID: ' + prodId);
+    this.httpClient.delete(`${this.baseFeaturedProductsUrl}/${prodId}`);
   }
 }

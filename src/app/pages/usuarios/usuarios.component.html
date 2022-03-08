@@ -3,3 +3,22 @@
     <h1>Pagina de Usuario / Admin</h1>
   </div>
 </section>
+
+<div class="user-container">
+  <div class="user-center">
+    <article class="userinfo-container" *ngIf="myUser">
+      <div class="user-name">
+        <p>Personal Info:</p>
+        <h2>{{ myUser.name }}</h2>
+        <h2>{{ myUser.surname }}</h2>
+        <p>Account Info:</p>
+        <h2>{{ myUser.username }}</h2>
+        <h2>{{ myUser.email }}</h2>
+        <p>Address Info:</p>
+        <h2>{{ myUser.country }}</h2>
+        <h2>{{ myUser.city }}</h2>
+        <h2>{{ myUser.state }}</h2>
+      </div>
+    </article>
+  </div>
+</div>

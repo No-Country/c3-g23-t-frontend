@@ -2,10 +2,10 @@
   <div class="section-title">
     <h1>Los mas Populares</h1>
   </div>
+  <span *ngIf="myError == 404" class="products-not-found">
+    No existen Productos...
+  </span>
   <div class="featured-center">
-    <span *ngIf="myError == 404" class="products-not-found">
-      No existen Productos...
-    </span>
     <article class="single-featured" *ngFor="let prod of products">
       <div
         class="featured-img-container"
@@ -14,7 +14,9 @@
         <img src="{{ prod.image.urlImage }}" alt="{{ prod.title }}" />
       </div>
       <div class="featured-info">
-        <h2>{{ prod.title }}</h2>
+        <h2>
+          {{ prod.title }}
+        </h2>
         <span> {{ prod.price | currency: "EUR" }} </span>
       </div>
     </article>

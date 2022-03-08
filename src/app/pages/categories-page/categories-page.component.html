@@ -3,3 +3,10 @@
     <h1>Todas las Categorias</h1>
   </div>
 </section>
+<div class="categories-container">
+  <div class="categories-center">
+    <article class="single-category" *ngFor="let c of myCat">
+      <h2>{{ c.name }}</h2>
+    </article>
+  </div>
+</div>
