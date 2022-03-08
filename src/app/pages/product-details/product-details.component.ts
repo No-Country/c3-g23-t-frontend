@@ -15,7 +15,9 @@ export class ProductDetailsComponent implements OnInit {
   activeImageUrl: string;
   stars: number = 0;
   selectedIndex: number = null;
+
   myCartItem: CartItem;
+  sendImg: string;
 
   constructor(
     private productService: ProductsService,
@@ -35,8 +37,8 @@ export class ProductDetailsComponent implements OnInit {
     this.productService.getProductDetails(prodId).subscribe((data) => {
       this.detailedProduct = data;
       this.activeImageUrl = data.imageProfile.urlImage;
+      this.sendImg = data.imageProfile.urlImage;
       this.stars = data.rating;
-      console.log(data);
     });
   }
 
@@ -46,7 +48,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart() {
-    this.myCartItem = new CartItem(this.detailedProduct);
+    this.myCartItem = new CartItem(this.detailedProduct, this.sendImg);
     this.cartService.addToCart(this.myCartItem);
     this.router.navigateByUrl('/pages/cart');
   }

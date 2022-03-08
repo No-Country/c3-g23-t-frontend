@@ -20,7 +20,7 @@
     <article class="cart-item-container" *ngFor="let item of cartItems">
       <!-- Item Desc -->
       <div class="title">
-        <img src="/assets/images/category_mochila.jpeg" alt="{{ item.name }}" />
+        <img src="{{ item.urlImage }}" alt="{{ item.name }}" />
         <div>
           <h5 class="name">{{ item.name }}</h5>
           <h5 class="price-small">{{ item.price | currency: "EUR" }}</h5>
@@ -39,7 +39,9 @@
         </button>
       </div>
       <!-- Subtotal (Queries) -->
-      <h5 class="subtotal">{{ item.price * item.quantity | currency: "EUR" }}</h5>
+      <h5 class="subtotal">
+        {{ item.price * item.quantity | currency: "EUR" }}
+      </h5>
       <!-- Remove BTN -->
       <button class="remove-btn">
         <mat-icon (click)="removeFromCart(item)">delete</mat-icon>
