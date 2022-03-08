@@ -61,11 +61,12 @@
 }
 // Not Found
 .products-not-found {
-  width: 100%;
+  width: 100% !important;
   margin: 0 auto;
   display: grid;
   place-items: center;
   text-align: center;
+  white-space: nowrap;
   font-size: 1.7rem;
   letter-spacing: 2px;
   font-weight: 300;
