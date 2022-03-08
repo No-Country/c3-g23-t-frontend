@@ -7,16 +7,66 @@
 <div class="filtered-prods-container">
   <!-- Filtros -->
   <div class="filters-container">
-    <div class="category">
-      <h2>Category</h2>
+    <div class="filters-top">
+      <div class="nav-search-container">
+        <button mat-menu-item>
+          <mat-icon> search</mat-icon>
+          <input
+            type="text"
+            placeholder="Buscar"
+            [(ngModel)]="selectedName"
+            (ngModelChange)="fireEndpoint()"
+          />
+        </button>
+      </div>
     </div>
-    <div class="price">
-      <h2>Price</h2>
+    <div class="filters-bot">
+      <!-- Category -->
+      <div class="category">
+        <h2>Category</h2>
+        <mat-select
+          placeholder="Ver... "
+          [(ngModel)]="selectedCat"
+          (ngModelChange)="fireEndpoint()"
+          class="category-dd"
+        >
+          <mat-option [value]="cat.name" *ngFor="let cat of categories">
+            {{ cat.name | titlecase }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <div class="price">
+        <h2>Price</h2>
+        <label for="price-range">{{ selectedPrice | currency: "EUR" }}</label>
+        <!-- Price -->
+        <div class="price-range-container">
+          <span class="min-price">
+            {{ minPrice }}
+          </span>
+
+          <input
+            id="price-range"
+            name="price-range"
+            [(ngModel)]="selectedPrice"
+            (ngModelChange)="fireEndpoint()"
+            type="range"
+            min="{{ minPrice }}"
+            step="{{ stepPrice }}"
+            max="{{ maxPrice }}"
+          />
+          <span class="max-price">
+            {{ maxPrice }}
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Productos -->
-  <div class="filtered-prods-center">
+  <span *ngIf="myError != 200" class="products-not-found">
+    No existen Productos...
+  </span>
+  <div class="filtered-prods-center" *ngIf="myError == 200">
     <article class="single-featured" *ngFor="let prod of allProds">
       <div
         class="featured-img-container"
