@@ -44,5 +44,3 @@ export class ProductsService {
     return this.httpClient.post(this.baseFeaturedProductsUrl, productForm);
   }
 }
-
-// Interface
