@@ -34,16 +34,23 @@ export class ProductsService {
 
   //  === FILTERED ===
   filteredName: string = '';
-  getProductsFiltered(name: string, price: number, category: string) {
-    let myParams = new HttpParams()
-      .set('name', name)
-      .set('price', price)
-      .set('category', category);
-
-    return this.httpClient.get<FilteredProduct[]>(
-      `${this.baseFeaturedProductsUrl}/all`,
-      { params: myParams }
-    );
+  getProductsFiltered(name: string, price: number, category: number) {
+    if (category == 0) {
+      let myParams = new HttpParams().set('name', name).set('price', price);
+      return this.httpClient.get<FilteredProduct[]>(
+        `${this.baseFeaturedProductsUrl}/all`,
+        { params: myParams }
+      );
+    } else {
+      let myParams = new HttpParams()
+        .set('name', name)
+        .set('price', price)
+        .set('category', category);
+      return this.httpClient.get<FilteredProduct[]>(
+        `${this.baseFeaturedProductsUrl}/all`,
+        { params: myParams }
+      );
+    }
   }
 
   // === USER ===

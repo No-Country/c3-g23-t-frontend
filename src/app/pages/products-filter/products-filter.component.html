@@ -30,7 +30,8 @@
           (ngModelChange)="fireEndpoint()"
           class="category-dd"
         >
-          <mat-option [value]="cat.name" *ngFor="let cat of categories">
+          <mat-option [value]="0">Ver Todas</mat-option>
+          <mat-option [value]="cat.id" *ngFor="let cat of categories">
             {{ cat.name | titlecase }}
           </mat-option>
         </mat-select>

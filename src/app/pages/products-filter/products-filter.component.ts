@@ -14,14 +14,15 @@ import { ProductsService } from 'src/app/_service/products.service';
 })
 export class ProductsFilterComponent implements OnInit {
   allProds: FilteredProduct[];
+  categories: Category[];
   myError: number = 200;
 
   // Filters
-  categories: Category[];
-  selectedCat: string = 'Calzados';
+  myCatsIdsArray: number[];
+  selectedCat: number;
   selectedName: string = '';
-
   selectedPrice: number = 1500;
+
   minPrice: number = 5;
   maxPrice: number = 3000;
   stepPrice: number = 50;
