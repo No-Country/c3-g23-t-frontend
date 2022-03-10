@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartItem } from 'src/app/_model/cart-item';
+import { FinalCartItem } from 'src/app/_model/cart-item-final';
 import { CartService } from 'src/app/_service/cart.service';
 import { UserService } from 'src/app/_service/user.service';
 
@@ -18,6 +19,8 @@ export class CartComponent implements OnInit {
   myError: number = 200;
   loggedUser: string;
 
+  finalCart: FinalCartItem[] = [];
+
   constructor(
     private router: Router,
     private cartService: CartService,
@@ -33,8 +36,14 @@ export class CartComponent implements OnInit {
 
   // POST
   postCart() {
+    // Pass CartItems -> FinalCartItems:
+    this.finalCart = this.cartItems.map((i) => {
+      let tempCartItem = new FinalCartItem(i);
+      return tempCartItem;
+    });
+
     const formCart = new FormData();
-    var cartBlob = new Blob([JSON.stringify(this.cartItems)], {
+    var cartBlob = new Blob([JSON.stringify(this.finalCart)], {
       type: 'application/json',
     });
     formCart.append('cart', cartBlob);
@@ -52,6 +61,7 @@ export class CartComponent implements OnInit {
       this.router.navigateByUrl('/login');
     }
   }
+
   // Methods
   listCartDetails() {
     this.cartItems = this.cartService.cartItems;
