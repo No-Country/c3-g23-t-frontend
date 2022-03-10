@@ -11,6 +11,7 @@ import { CategoriesPageComponent } from './categories-page/categories-page.compo
 import { ProductsFilterComponent } from './products-filter/products-filter.component';
 import { UserProductsComponent } from './user-products/user-products.component';
 import { UserPurchasesComponent } from './user-purchases/user-purchases.component';
+import { ProductUserInfoComponent } from './product-user-info/product-user-info.component';
 //import { GuardService } from '../_service/guard.service';
 
 export const routes: Routes = [
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'all-products', component: ProductsFilterComponent },
   { path: 'user-products', component: UserProductsComponent },
   { path: 'user-purchases', component: UserPurchasesComponent },
+  { path: 'user-product-edit/:id', component: ProductUserInfoComponent },
 ];
 
 @NgModule({

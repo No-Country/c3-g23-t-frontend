@@ -23,6 +23,7 @@ import { ProductsFilterComponent } from './products-filter/products-filter.compo
 import { UserProductsComponent } from './user-products/user-products.component';
 import { UserPurchasesComponent } from './user-purchases/user-purchases.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { ProductUserInfoComponent } from './product-user-info/product-user-info.component';
 
 @NgModule({
   imports: [
@@ -53,6 +54,7 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
     UserProductsComponent,
     UserPurchasesComponent,
     CheckoutPageComponent,
+    ProductUserInfoComponent,
   ],
   providers: [],
 })

@@ -57,6 +57,12 @@ export class ProductsService {
   createNewProduct(productForm: FormData) {
     return this.httpClient.post(this.baseFeaturedProductsUrl, productForm);
   }
+  editCurrentProduct(productForm: FormData, id: number) {
+    return this.httpClient.put(
+      `${this.baseFeaturedProductsUrl}/${id}`,
+      productForm
+    );
+  }
 
   getProductsByUser() {
     return this.httpClient.get<FeaturedProduct[]>(

@@ -8,15 +8,12 @@
     <span *ngIf="myError != 200" class="products-not-found">
       No existen Productos...
     </span>
-    <article class="single-featured" *ngFor="let prod of myProds">
+    <article
+      class="single-featured"
+      *ngFor="let prod of myProds"
+      routerLink="/pages/user-product-edit/{{ prod.id }}"
+    >
       <div class="featured-img-container">
-        <div class="img-overlay-container">
-          <div class="overlay-bg"></div>
-          <div class="overlay-text">
-            <mat-icon routerLink="/pages/edit-product"> edit</mat-icon>
-            <mat-icon (click)="deleteMyProduct(prod.id)"> delete </mat-icon>
-          </div>
-        </div>
         <img src="{{ prod.image.urlImage }}" alt="{{ prod.title }}" />
       </div>
       <div class="featured-info">

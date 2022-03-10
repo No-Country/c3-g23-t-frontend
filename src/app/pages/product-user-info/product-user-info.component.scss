@@ -1,0 +1,51 @@
+@import "/src/app/pages/create-product/create-product.component.scss";
+
+.crud-product-container {
+  width: 100%;
+  margin: 0 auto;
+  .crud-product-center {
+    display: grid;
+    place-items: center;
+  }
+}
+.login-form {
+  margin-top: 0% !important;
+  .single-input {
+    label {
+    }
+    input[type="email"],
+    input[type="text"],
+    input[type="number"],
+    input[type="password"] {
+      width: 100%;
+      display: block;
+      padding-left: 0.5rem;
+      background-color: #fafafa;
+      border: solid 1px #565656;
+      border-radius: 0.3rem;
+      height: 2.5rem;
+      font-size: 1rem;
+      color: black;
+      font-weight: 300;
+      &:focus {
+        outline: none;
+        border: solid 2px crimson !important;
+      }
+    }
+  }
+}
+
+@media (min-width: 650px) {
+
+}
+@media (min-width: 700px) {
+  section {
+    padding-top: 0rem !important;
+  }
+}
+@media (min-width: 800px) {
+}
+@media (min-width: 950px) {
+}
+@media (min-width: 1200px) {
+}
