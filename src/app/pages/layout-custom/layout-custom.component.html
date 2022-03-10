@@ -3,6 +3,9 @@
   <div class="nav-center">
     <!-- TOP -->
     <div class="nav-top">
+      <div class="nav-ham-container">
+        <span class="material-icons" (click)="openSidebar()"> menu </span>
+      </div>  
       <div class="nav-logo-container" routerLink="/">
         <img src="/assets/images/MyStoreLogo.png" alt="MyStore" />
       </div>
@@ -19,24 +22,7 @@
           <mat-icon routerLink="/pages/cart">shopping_bag</mat-icon>
         </div>
       </div>
-    </div>
-    <!-- BOT -->
-    <div class="nav-bot">
-      <div class="nav-ham-container">
-        <span class="material-icons" (click)="openSidebar()"> menu </span>
-      </div>
-      <div class="nav-search-container">
-        <button mat-menu-item>
-          <mat-icon> search</mat-icon>
-          <input
-            type="text"
-            placeholder="Buscar"
-            [(ngModel)]="selectedName"
-            (ngModelChange)="fireRedirect()"
-          />
-        </button>
-      </div>
-    </div>
+    </div> 
   </div>
 </nav>
 

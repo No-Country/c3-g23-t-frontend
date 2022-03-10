@@ -1,9 +1,7 @@
 // Navbar
 .nav-container {
   width: 100%;
-  display: grid;
-  place-items: center;
-  padding: 0.7rem 0rem;
+  padding: 1.2rem 0rem;
   background: white;
   box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.085);
   z-index: 1000;
@@ -11,22 +9,37 @@
   top: 0;
   left: 0;
   .nav-center {
-    width: 88%;
+    width: 95%;
     margin: 0 auto;
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    row-gap: 0.3rem;
+    place-items: center;
   }
 }
 .nav-top {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 0.5rem;
+  .nav-ham-container {
+    display: grid;
+    place-items: center;
+    span {
+      height: 100%;
+      color: rgb(56, 56, 56);
+      font-size: 1.5rem;
+      cursor: pointer;
+      &:hover {
+        color: crimson;
+      }
+    }
+  }
   .nav-logo-container {
     width: 100%;
+    margin: 0 auto;
     img {
-      width: 6rem;
+      width: 100%;
+      margin: 0 auto;
       cursor: pointer;
       transition: 0.25s linear all;
     }
@@ -59,24 +72,7 @@
     }
   }
 }
-.nav-bot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  .nav-ham-container {
-    display: grid;
-    place-items: center;
-    span {
-      height: 100%;
-      color: rgb(56, 56, 56);
-      font-size: 1.5rem;
-      cursor: pointer;
-      &:hover {
-        color: crimson;
-      }
-    }
-  }
-}
+
 .nav-search-container {
   flex: 1;
   button {
@@ -113,7 +109,7 @@
 
 // ROUTER OUTLET
 .outlet-container {
-  padding-top: 5rem; // Navbar Height
+  padding-top: 4rem; // Navbar Height
   padding-bottom: 20rem; // Footer Height
 }
 
@@ -174,26 +170,26 @@
     }
   }
   .nav-top {
-    .nav-logo-container {
-      img {
-        width: 8rem;
-      }
-    }
-    .nav-top-right {
-      font-size: 1.1rem;
-      letter-spacing: 1.3px;
-      .nav-cart-container {
-        mat-icon {
-          font-size: 1.8rem;
-        }
-      }
-    }
-  }
-  .nav-bot {
     .nav-ham-container {
       span {
         font-size: 2rem;
       }
+      .nav-logo-container {
+        img {
+          width: 100%;
+        }
+      }
+      .nav-top-right {
+        font-size: 1.1rem;
+        letter-spacing: 1.3px;
+        .nav-cart-container {
+          mat-icon {
+            font-size: 1.8rem;
+          }
+        }
+      }
+    }
+    .nav-bot {
     }
   }
 }
