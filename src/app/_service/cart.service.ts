@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
@@ -7,19 +8,24 @@ import { CartItem } from '../_model/cart-item';
   providedIn: 'root',
 })
 export class CartService {
-  checkoutUrl: string = '';
+  checkoutUrl: string = 'http://localhost:8080/api/v1/carts';
 
   cartItems: CartItem[] = [];
   totalPrice: Subject<number> = new BehaviorSubject<number>(0);
   totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
   storage: Storage = localStorage;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private httpClient: HttpClient) {
     let myStorageData = JSON.parse(this.storage.getItem('cartItems'));
     if (myStorageData != null) {
       this.cartItems = myStorageData;
       this.computeCartTotals();
     }
+  }
+
+  // POST Cart:
+  proceedToCheckout(myCart: any) {
+    return this.httpClient.post(this.checkoutUrl, myCart);
   }
 
   // ADD
@@ -37,7 +43,7 @@ export class CartService {
     }
     if (alreadyInCart) {
       // Increment QTY for existing Item:
-      foundCartItem.quantity++;
+      foundCartItem.amount++;
     } else {
       // Add to Cart:
       this.cartItems.push(myCartItem);
@@ -48,8 +54,8 @@ export class CartService {
 
   // DECREASE
   decreaseQuantity(myCartItem: CartItem) {
-    myCartItem.quantity--;
-    if (myCartItem.quantity === 0) {
+    myCartItem.amount--;
+    if (myCartItem.amount === 0) {
       this.removeFromCart(myCartItem);
     } else {
       this.computeCartTotals();
@@ -62,8 +68,8 @@ export class CartService {
     let totalQuantityValue: number = 0;
 
     for (let cartItem of this.cartItems) {
-      totalPriceValue += cartItem.quantity * cartItem.price;
-      totalQuantityValue += cartItem.quantity;
+      totalPriceValue += cartItem.amount * cartItem.price;
+      totalQuantityValue += cartItem.amount;
     }
 
     // Send DATA to Subscribers:
@@ -91,8 +97,6 @@ export class CartService {
     this.persistCartItems();
     this.router.navigateByUrl('/pages/all-products');
   }
-
-  proceedToCheckout() {}
 
   persistCartItems() {
     this.storage.setItem('cartItems', JSON.stringify(this.cartItems));

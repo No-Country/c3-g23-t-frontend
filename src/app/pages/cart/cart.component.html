@@ -33,14 +33,14 @@
         <button class="amount-btn">
           <mat-icon (click)="decreaseQty(item)">remove</mat-icon>
         </button>
-        <h2 class="amount">{{ item.quantity }}</h2>
+        <h2 class="amount">{{ item.amount }}</h2>
         <button class="amount-btn">
           <mat-icon (click)="incrementQty(item)">add</mat-icon>
         </button>
       </div>
       <!-- Subtotal (Queries) -->
       <h5 class="subtotal">
-        {{ item.price * item.quantity | currency: "EUR" }}
+        {{ item.price * item.amount | currency: "EUR" }}
       </h5>
       <!-- Remove BTN -->
       <button class="remove-btn">
@@ -72,7 +72,7 @@
         Order Total:
         <span> {{ totalPrice + shippingCost | currency: "EUR" }}</span>
       </h4>
-      <div class="checkout-btn">Comprar!</div>
+      <div class="checkout-btn" (click)="postCart()">Comprar!</div>
     </article>
     <!-- END Cart Totals -->
   </div>
